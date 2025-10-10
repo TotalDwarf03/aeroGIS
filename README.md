@@ -33,6 +33,12 @@ apiKey = "YOUR_API_KEY_HERE"; // Replace with your actual API key
 git update-index --assume-unchanged src/setApiKey.js
 ```
 
+Or un-ignored using:
+
+```bash
+git update-index --no-assume-unchanged src/setApiKey.js
+```
+
 After adding your API key, you can open `index.html` in a web browser to view the project.
 
 ## Linting and Formatting
