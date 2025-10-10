@@ -1,8 +1,8 @@
+# Land, Sea and Air
+
 ![Land, Sea and Air Thumbnail](./assets/land-sea-and-air-thumbnail.png)
 
-# Land Sea and Air
-
-Land Sea and Air is a website built on top of the Google Maps API and the OpenFlights dataset. The site helps you travel the world by Plane, Train or Ferry.
+Land, Sea and Air is a website built on top of the Google Maps API and the OpenFlights dataset. The site helps you travel the world by Plane, Train or Ferry.
 
 - [Google Maps API](https://developers.google.com/maps/documentation/javascript/overview)
 - [OpenFlights Dataset](https://openflights.org/data)
