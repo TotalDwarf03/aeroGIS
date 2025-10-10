@@ -1,7 +1,7 @@
 /**
  * Loads the Google Maps API script.
  * Once loaded, it initializes the map.
- * @param {string} apiKey 
+ * @param {string} apiKey  
  * @returns {void}
  */
 function loadMapsAPI(apiKey) {
@@ -11,7 +11,7 @@ function loadMapsAPI(apiKey) {
     script.async = true;
     script.defer = true;
 
-    script.onerror = function () {
+    script.onerror = function() {
         console.error("Failed to load Google Maps API script.");
     };
 
