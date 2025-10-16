@@ -1,0 +1,5 @@
+# Ignore all geojson files
+*.geojson
+
+# Ignore all csv files
+*.csv
