@@ -13,15 +13,15 @@ Lots of these datasets have been modified to suit the needs of this project. The
   - [Contents](#contents)
   - [Sources](#sources)
     - [OpenFlights](#openflights)
-      - [Overview](#overview-1)
-      - [Cleansing Process](#cleansing-process)
+      - [OpenFlights Overview](#openflights-overview)
+      - [OpenFlights Cleansing Process](#openflights-cleansing-process)
         - [`airports-extended.dat`](#airports-extendeddat)
         - [`routes.dat`](#routesdat)
-        - [Output Summary](#output-summary)
+        - [OpenFlights Output Summary](#openflights-output-summary)
     - [UK Boundaries](#uk-boundaries)
-      - [Overview](#overview-2)
-      - [Cleaning Process](#cleaning-process)
-      - [Output Summary](#output-summary-1)
+      - [UK Boundaries Overview](#uk-boundaries-overview)
+      - [UK Boundaries Cleansing Process](#uk-boundaries-cleansing-process)
+      - [UK Boundaries Output Summary](#uk-boundaries-output-summary)
 
 ## Sources
 
@@ -30,7 +30,7 @@ Lots of these datasets have been modified to suit the needs of this project. The
 **Source:** [OpenFlights Website](https://openflights.org/data)
 **GitHub Repository:** [OpenFlights GitHub](https://github.com/jpatokal/openflights/tree/master/data)
 
-#### Overview
+#### OpenFlights Overview
 
 OpenFlights provides a comprehensive dataset of global airport information, including details such as airport codes, names, locations, and other relevant attributes. This dataset is widely used in aviation-related applications and research.
 
@@ -40,7 +40,7 @@ From this dataset, I have selected the following for this project:
 - `routes.dat`: A CSV file containing a list of airline routes across the globe.
 - `planes.dat`: A CSV file containing a list of aircraft types and their respective details.
 
-#### Cleansing Process
+#### OpenFlights Cleansing Process
 
 ##### `airports-extended.dat`
 
@@ -98,46 +98,46 @@ Additionally, we need to filter out any duplicate routes (i.e. routes that appea
 1. Convert the GeoJSON file to a CSV file (`routes-uk-duplicates.csv` in the `filtered` folder).
 2. Using a CSV tool (I used Rainbow CSV), filter out any duplicate routes. I did this by running the following RBQL query:
 
-```sql
-SELECT DISTINCT *
-```
+    ```sql
+    SELECT DISTINCT *
+    ```
 
-Then copying the results to a new CSV file (`routes-uk.csv` in the `filtered` folder).
+    Then copying the results to a new CSV file (`routes-uk.csv` in the `filtered` folder).
 
 3. We need to organise the CSV to make the conversion to GeoJSON easier. I did this by organising the CSV file into 2 separate CSV files:
-   - A list of source airports with their geometries (`source-airports.csv`).
+      - A list of source airports with their geometries (`source-airports.csv`).
 
-     This was done using the following RBQL query:
+        This was done using the following RBQL query:
 
-     ```sql
-     SELECT DISTINCT
-       a.uid,
-       a.equipment,
-       a.source_name,
-       a.source_city,
-       a.source_country,
-       a.source_lat,
-       a.source_long
-     ```
+        ```sql
+        SELECT DISTINCT
+          a.uid,
+          a.equipment,
+          a.source_name,
+          a.source_city,
+          a.source_country,
+          a.source_lat,
+          a.source_long
+        ```
 
-     And copying the results to a new CSV file.
+        And copying the results to a new CSV file.
 
-   - A list of destination airports with their geometries (`destination-airports.csv`).
+      - A list of destination airports with their geometries (`destination-airports.csv`).
 
-     This was done using the following RBQL query:
+        This was done using the following RBQL query:
 
-     ```sql
-     SELECT DISTINCT
-       a.uid,
-       a.equipment,
-       a.dest_name,
-       a.dest_city,
-       a.dest_country,
-       a.dest_lat,
-       a.dest_long
-     ```
+        ```sql
+        SELECT DISTINCT
+          a.uid,
+          a.equipment,
+          a.dest_name,
+          a.dest_city,
+          a.dest_country,
+          a.dest_lat,
+          a.dest_long
+        ```
 
-     And copying the results to a new CSV file.
+        And copying the results to a new CSV file.
 
 4. With the 2 new CSV files, I then converted them both to GeoJSON using QGIS. I loaded each CSV file's latitude and longitude columns as point geometries, and exported them to GeoJSON format.
 
@@ -145,7 +145,7 @@ Then copying the results to a new CSV file (`routes-uk.csv` in the `filtered` fo
    - `source-airports.geojson`
    - `destination-airports.geojson`
 
-##### Output Summary
+##### OpenFlights Output Summary
 
 Following the cleansing process, the following datasets will be used in the project:
 
@@ -163,11 +163,11 @@ These datasets have been copied to an output folder and prefixed with their resp
 
 **Source:** [UK Boundaries](https://www.data.gov.uk/dataset/96f3e623-6e54-4df2-808c-48dba5c98b55/countries-december-2021-boundaries-uk-bgc)
 
-#### Overview
+#### UK Boundaries Overview
 
 The UK Boundaries dataset provides a detailed polygon of the countries within the United Kingdom. This dataset will help in visualizing the geographical context of the airports and routes within the UK. The dataset is provided in GeoJSON format by the Office for National Statistics.
 
-#### Cleaning Process
+#### UK Boundaries Cleansing Process
 
 The dataset was downloaded as a GeoJSON file and loaded into QGIS.
 The GeoJSON consist of 4 parts, one for each country in the UK (England, Scotland, Wales and Northern Ireland).
@@ -177,9 +177,9 @@ Each part contains a polygon representing the country's boundaries, and a latitu
 Within the project I don't want to fill in each country with a colour, instead I want to just show the boundaries.
 To make this happen, I converted the polygons to lines using QGIS's "Polygon to Lines" tool (Vector > Geometry Tools > Polygon to Lines) and saved it to a new GeoJSON file (`uk-boundary-lines.geojson` within the `filtered` folder).
 
-#### Output Summary
+#### UK Boundaries Output Summary
 
-Following the cleaning process, the following dataset will be used in the project:
+Following the cleansing process, the following dataset will be used in the project:
 
 - `uk-boundary-lines.geojson`: A GeoJSON file containing the boundaries of the countries within the UK.
 
