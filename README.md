@@ -8,6 +8,8 @@ Land, Sea and Air is a website built on top of the Google Maps API and the OpenF
 - [OpenFlights Dataset](https://openflights.org/data)
 - [OpenFlights GitHub](https://github.com/jpatokal/openflights)
 
+For a comprehensive list of datasets and their sources, please refer to the [README](./datasets/README.md) in the `datasets` directory.
+
 This project was created as part of IS3S665 - GIS and the Spatial Web at the University of South Wales (USW).
 
 The curriculum for the module can be found here: [IS3S665 - GIS and the Spatial Web](https://curriculum.southwales.ac.uk/Module/Details?moduleId=MOD009109)
