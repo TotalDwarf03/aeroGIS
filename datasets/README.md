@@ -98,46 +98,46 @@ Additionally, we need to filter out any duplicate routes (i.e. routes that appea
 1. Convert the GeoJSON file to a CSV file (`routes-uk-duplicates.csv` in the `filtered` folder).
 2. Using a CSV tool (I used Rainbow CSV), filter out any duplicate routes. I did this by running the following RBQL query:
 
-    ```sql
-    SELECT DISTINCT *
-    ```
+   ```sql
+   SELECT DISTINCT *
+   ```
 
-    Then copying the results to a new CSV file (`routes-uk.csv` in the `filtered` folder).
+   Then copying the results to a new CSV file (`routes-uk.csv` in the `filtered` folder).
 
 3. We need to organise the CSV to make the conversion to GeoJSON easier. I did this by organising the CSV file into 2 separate CSV files:
-      - A list of source airports with their geometries (`source-airports.csv`).
+   - A list of source airports with their geometries (`source-airports.csv`).
 
-        This was done using the following RBQL query:
+     This was done using the following RBQL query:
 
-        ```sql
-        SELECT DISTINCT
-          a.uid,
-          a.equipment,
-          a.source_name,
-          a.source_city,
-          a.source_country,
-          a.source_lat,
-          a.source_long
-        ```
+     ```sql
+     SELECT DISTINCT
+       a.uid,
+       a.equipment,
+       a.source_name,
+       a.source_city,
+       a.source_country,
+       a.source_lat,
+       a.source_long
+     ```
 
-        And copying the results to a new CSV file.
+     And copying the results to a new CSV file.
 
-      - A list of destination airports with their geometries (`destination-airports.csv`).
+   - A list of destination airports with their geometries (`destination-airports.csv`).
 
-        This was done using the following RBQL query:
+     This was done using the following RBQL query:
 
-        ```sql
-        SELECT DISTINCT
-          a.uid,
-          a.equipment,
-          a.dest_name,
-          a.dest_city,
-          a.dest_country,
-          a.dest_lat,
-          a.dest_long
-        ```
+     ```sql
+     SELECT DISTINCT
+       a.uid,
+       a.equipment,
+       a.dest_name,
+       a.dest_city,
+       a.dest_country,
+       a.dest_lat,
+       a.dest_long
+     ```
 
-        And copying the results to a new CSV file.
+     And copying the results to a new CSV file.
 
 4. With the 2 new CSV files, I then converted them both to GeoJSON using QGIS. I loaded each CSV file's latitude and longitude columns as point geometries, and exported them to GeoJSON format.
 
