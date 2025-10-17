@@ -16,7 +16,7 @@
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
-    >
+    />
 
     <!-- Theme Switcher Utility for Pico -->
     <script src="./js/themeSwitcher.js"></script>
@@ -25,46 +25,118 @@
     <script src="./js/navToggle.js"></script>
 
     <!-- Material Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
-    <header class="container"> 
-      <!-- Desktop Nav --> 
+    <header class="container">
+      <!-- Desktop Nav -->
       <nav class="hide-on-mobile">
         <ul>
-          <li><a href="./index.html"><img src="../assets/land-sea-and-air-logo.png" alt="Land, Sea and Air Logo" width="150px" /></a></li>
+          <li>
+            <a href="./index.html"
+              ><img
+                src="../assets/land-sea-and-air-logo.png"
+                alt="Land, Sea and Air Logo"
+                width="150px"
+            /></a>
+          </li>
           <li><h1>Land, Sea and Air</h1></li>
         </ul>
         <ul>
-          <li><a class="contrast" href="./index.html">Home<span class="inline-icon material-icons">home</span></a></li>
-          <li><a class="contrast" href="./airports.html">Airports<span class="inline-icon material-icons">airport_shuttle</span></a></li>
-          <li><a class="contrast" href="./routes.html" aria-current="page">Routes<span class="inline-icon material-icons">route</span></a></li>
-          <li><a class="contrast" href="./planes.html">Planes<span class="inline-icon material-icons">airplanemode_active</span></a></li>
+          <li>
+            <a class="contrast" href="./index.html"
+              >Home<span class="inline-icon material-icons">home</span></a
+            >
+          </li>
+          <li>
+            <a class="contrast" href="./airports.html"
+              >Airports<span class="inline-icon material-icons"
+                >airport_shuttle</span
+              ></a
+            >
+          </li>
+          <li>
+            <a class="contrast" href="./routes.html" aria-current="page"
+              >Routes<span class="inline-icon material-icons">route</span></a
+            >
+          </li>
+          <li>
+            <a class="contrast" href="./planes.html"
+              >Planes<span class="inline-icon material-icons"
+                >airplanemode_active</span
+              ></a
+            >
+          </li>
           <li>|</li>
-          <li><a class="contrast" id="themeSwitcherDesktop" onclick="toggleTheme()"><span id="themeSwitcherIconDesktop" class="material-icons inline-icon"></span></a></li>
+          <li>
+            <a
+              class="contrast"
+              id="themeSwitcherDesktop"
+              onclick="toggleTheme()"
+              ><span
+                id="themeSwitcherIconDesktop"
+                class="material-icons inline-icon"
+              ></span
+            ></a>
+          </li>
         </ul>
       </nav>
 
       <!-- Mobile Nav -->
       <div class="hide-on-desktop">
-        <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          "
+        >
           <h1>Land, Sea and Air</h1>
-          <a class="contrast" id="themeSwitcherMobile" onclick="toggleTheme()"><span id="themeSwitcherIconMobile" class="material-icons"></span></a>
+          <a class="contrast" id="themeSwitcherMobile" onclick="toggleTheme()"
+            ><span id="themeSwitcherIconMobile" class="material-icons"></span
+          ></a>
         </div>
 
         <aside id="mobileNavLinks">
           <nav>
             <ul>
-              <li><a class="contrast" href="./index.html">Home<span class="inline-icon material-icons">home</span></a></li>
-              <li><a class="contrast" href="./airports.html">Airports<span class="inline-icon material-icons">airport_shuttle</span></a></li>
-              <li><a class="contrast" href="./routes.html">Routes<span class="inline-icon material-icons">route</span></a></li>
-              <li><a class="contrast" href="./planes.html">Planes<span class="inline-icon material-icons">airplanemode_active</span></a></li>
+              <li>
+                <a class="contrast" href="./index.html"
+                  >Home<span class="inline-icon material-icons">home</span></a
+                >
+              </li>
+              <li>
+                <a class="contrast" href="./airports.html"
+                  >Airports<span class="inline-icon material-icons"
+                    >airport_shuttle</span
+                  ></a
+                >
+              </li>
+              <li>
+                <a class="contrast" href="./routes.html"
+                  >Routes<span class="inline-icon material-icons"
+                    >route</span
+                  ></a
+                >
+              </li>
+              <li>
+                <a class="contrast" href="./planes.html"
+                  >Planes<span class="inline-icon material-icons"
+                    >airplanemode_active</span
+                  ></a
+                >
+              </li>
             </ul>
           </nav>
         </aside>
 
-        <button id="navToggle" class="contrast" onclick="navToggle()">Menu</button>
+        <button id="navToggle" class="contrast" onclick="navToggle()">
+          Menu
+        </button>
       </div>
     </header>
 
@@ -83,8 +155,6 @@
       </script>
     </main>
 
-    <footer class="container">
-
-    </footer>
+    <footer class="container"></footer>
   </body>
 </html>
