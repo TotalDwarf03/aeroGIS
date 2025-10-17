@@ -17,6 +17,7 @@ Lots of these datasets have been modified to suit the needs of this project. The
       - [OpenFlights Cleansing Process](#openflights-cleansing-process)
         - [`airports-extended.dat`](#airports-extendeddat)
         - [`routes.dat`](#routesdat)
+        - [`planes.dat`](#planesdat)
         - [OpenFlights Output Summary](#openflights-output-summary)
     - [UK Boundaries](#uk-boundaries)
       - [UK Boundaries Overview](#uk-boundaries-overview)
@@ -145,6 +146,32 @@ Additionally, we need to filter out any duplicate routes (i.e. routes that appea
    - `source-airports.geojson`
    - `destination-airports.geojson`
 
+##### `planes.dat`
+
+The `planes.dat` dataset does not contain any spatial data but it will still add some good information to the website, such as being able to see which aircraft was used on a particular route.
+
+To make this dataset easier to work with, I added headers to the CSV file based off OpenFlights' documentation.
+
+The following headers were added:
+
+- "name"
+- "iata"
+- "icao"
+
+The dataset was then saved to a new CSV file (`planes.csv` in the `filtered` folder).
+
+**TODO:** This might need to be converted to a JSON file for easier use within the web application. Probably with the following structure:
+
+```json
+[
+  {
+    "name": "Aircraft Name",
+    "iata": "IATA Code",
+    "icao": "ICAO Code"
+  }
+]
+```
+
 ##### OpenFlights Output Summary
 
 Following the cleansing process, the following datasets will be used in the project:
@@ -158,6 +185,7 @@ These datasets have been copied to an output folder and prefixed with their resp
 - `openflights-airports-uk.geojson`
 - `openflights-routes-source-airports.geojson`
 - `openflights-routes-destination-airports.geojson`
+- `openflights-planes.csv`
 
 ### UK Boundaries
 
