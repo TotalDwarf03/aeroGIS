@@ -1,0 +1,50 @@
+.inline-icon {
+    vertical-align: middle;
+    margin-left: 0.3em;
+    font-size: var(--pico-font-size) !important;
+}
+
+#themeSwitcherIconDesktop {
+    font-size: 1.5em !important;
+}
+
+#themeSwitcherIconMobile {
+    font-size: 2rem !important;
+    margin-bottom: var(--pico-typography-spacing-vertical);
+}
+
+#mobileNavLinks.show {
+    display: block;
+}
+
+#mobileNavLinks {
+    display: none;
+}
+
+@media (min-width: 576px) {
+    nav, nav ul {
+        flex-direction: row;
+    }
+
+    .hide-on-desktop {
+        display: none;
+    }
+}
+
+@media (max-width: 575px) {
+    nav, nav ul {
+       flex-direction: column;
+    }
+
+    aside nav ul li {
+        text-align: center;
+    }
+
+    .hide-on-mobile {
+        display: none;
+    }
+
+    #navToggle {
+        width: 100%;
+    }
+}
