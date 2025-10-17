@@ -158,9 +158,7 @@ The following headers were added:
 - "iata"
 - "icao"
 
-The dataset was then saved to a new CSV file (`planes.csv` in the `filtered` folder).
-
-**TODO:** This might need to be converted to a JSON file for easier use within the web application. Probably with the following structure:
+Finally, I converted the dataset to JSON format for easier use within the web application. The final output looks like this:
 
 ```json
 [
@@ -171,6 +169,8 @@ The dataset was then saved to a new CSV file (`planes.csv` in the `filtered` fol
   }
 ]
 ```
+
+This created the `planes.json` dataset (found within the `filtered` folder).
 
 ##### OpenFlights Output Summary
 
@@ -185,7 +185,7 @@ These datasets have been copied to an output folder and prefixed with their resp
 - `openflights-airports-uk.geojson`
 - `openflights-routes-source-airports.geojson`
 - `openflights-routes-destination-airports.geojson`
-- `openflights-planes.csv`
+- `openflights-planes.json`
 
 ### UK Boundaries
 
