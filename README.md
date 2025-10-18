@@ -1,8 +1,8 @@
-# Land, Sea and Air
+# AeroGIS
 
-![Land, Sea and Air Thumbnail](./assets/land-sea-and-air-thumbnail.png)
+![AeroGIS Logo](./assets/aerogis-logo.png)
 
-Land, Sea and Air is a website built on top of the Google Maps API and the OpenFlights dataset. The site helps you travel the world by Plane, Train or Ferry.
+AeroGIS is a website built on top of the Google Maps API and the OpenFlights dataset. It visualises various aspects of global aviation, including airports, routes and the planes that fly them.
 
 - [Google Maps API](https://developers.google.com/maps/documentation/javascript/overview)
 - [OpenFlights Dataset](https://openflights.org/data)
