@@ -1,6 +1,6 @@
 # AeroGIS
 
-![AeroGIS Logo](./assets/aerogis-logo.png)
+![AeroGIS Logo](./assets/aerogis-thumbnail.png)
 
 AeroGIS is a website built on top of the Google Maps API and the OpenFlights dataset. It visualises various aspects of global aviation, including airports, routes and the planes that fly them.
 
