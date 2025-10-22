@@ -2,13 +2,7 @@
 
 ![AeroGIS Logo](./assets/aerogis-thumbnail.png)
 
-AeroGIS is a spatially enabled website that visualises global airline routes and airport data using the Google Maps API.
-
-The site uses the following datasets:
-
-- OpenFlights (Routes + Planes)
-- OurAirports (Airports + Runways)
-- UK Boundaries (Country Boundaries)
+AeroGIS is a spatially enabled website that visualises airports around the UK using the Google Maps API.
 
 For a comprehensive list of datasets, their sources and any modifications, please refer to the [README](./datasets/README.md) in the `datasets` directory.
 
@@ -18,7 +12,7 @@ The curriculum for the module can be found here: [IS3S665 - GIS and the Spatial 
 
 ## Features
 
-TODO
+TODO: List the main features of the project here once finished.
 
 ## Getting Started
 
@@ -106,3 +100,7 @@ markdownlint . --fix
 ## Maps API Documentation
 
 For more information on the Google Maps JavaScript API, please refer to the official documentation: [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/reference)
+
+## Credits and Acknowledgements
+
+TODO: List any credits or acknowledgements here.
