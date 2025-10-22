@@ -102,3 +102,7 @@ Once Markdownlint is installed, you can run it on the project using the followin
 ```bash
 markdownlint . --fix
 ```
+
+## Maps API Documentation
+
+For more information on the Google Maps JavaScript API, please refer to the official documentation: [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/reference)

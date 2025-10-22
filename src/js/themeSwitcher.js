@@ -6,11 +6,16 @@ const themeSwitcherIds = [
   { buttonId: "themeSwitcherMobile", iconId: "themeSwitcherIconMobile" },
 ];
 
+function getCurrentTheme() {
+  return document.documentElement.getAttribute("data-theme");
+}
+
 function toggleTheme() {
-  const currentTheme = document.documentElement.getAttribute("data-theme");
+  const currentTheme = getCurrentTheme();
   const newTheme = currentTheme === "dark" ? "light" : "dark";
 
   document.documentElement.setAttribute("data-theme", newTheme);
+  sessionStorage.setItem("theme", newTheme);
 
   themeSwitcherIds.forEach(({ buttonId, iconId }) => {
     const themeSwitcherIcon = document.getElementById(iconId);
@@ -20,13 +25,21 @@ function toggleTheme() {
       themeSwitcherIcon.textContent = lightModeIcon;
     }
   });
+
+  loadHomepageMap();
 }
 
 // Initialize button text on page load
 document.addEventListener("DOMContentLoaded", () => {
-  const themeSwitcherButton = document.getElementById("themeSwitcherDesktop");
+  const savedTheme = sessionStorage.getItem("theme") || "light";
+  document.documentElement.setAttribute("data-theme", savedTheme);
 
-  // For some reason, the button doesn't reflect the theme until clicked once
-  // So we simulate a click to set it correctly - this is really stupid
-  themeSwitcherButton.click();
+  themeSwitcherIds.forEach(({ buttonId, iconId }) => {
+    const themeSwitcherIcon = document.getElementById(iconId);
+    if (savedTheme === "dark") {
+      themeSwitcherIcon.textContent = darkModeIcon;
+    } else {
+      themeSwitcherIcon.textContent = lightModeIcon;
+    }
+  });
 });

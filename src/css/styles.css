@@ -10,7 +10,6 @@
 
 #themeSwitcherIconMobile {
   font-size: 2rem !important;
-  margin-bottom: var(--pico-typography-spacing-vertical);
 }
 
 #mobileNavLinks.show {
@@ -19,6 +18,33 @@
 
 #mobileNavLinks {
   display: none;
+}
+
+.back-to-top-icon {
+  vertical-align: middle;
+  font-size: 1.2em;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+
+.map-container {
+  height: 80vh;
+  width: 100%;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.centred-content {
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 @media (min-width: 576px) {

@@ -3,7 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Land, Sea and Air</title>
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="./favicon/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="./favicon/favicon.svg" />
+    <link rel="shortcut icon" href="./favicon/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./favicon/apple-touch-icon.png"
+    />
+    <meta name="apple-mobile-web-app-title" content="AeroGIS" />
+    <link rel="manifest" href="./favicon/site.webmanifest" />
+
+    <title>AeroGIS</title>
 
     <script src="./js/mapUtils.js"></script>
     <script src="./js/loadMapsApi.js"></script>
@@ -29,6 +46,15 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+
+    <!-- FontAwesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
 
   <body>
@@ -37,37 +63,26 @@
       <nav class="hide-on-mobile">
         <ul>
           <li>
-            <a href="./index.html"
-              ><img
-                src="../assets/land-sea-and-air-logo.png"
-                alt="Land, Sea and Air Logo"
-                width="150px"
-            /></a>
+            <h1 style="margin: 0">
+              <a href="./index.html"
+                ><img
+                  src="../assets/aerogis-logo-hori.png"
+                  alt="AeroGIS"
+                  width="200px"
+              /></a>
+            </h1>
           </li>
-          <li><h1>Land, Sea and Air</h1></li>
         </ul>
         <ul>
           <li>
-            <a class="contrast" href="./index.html"
+            <a class="contrast" href="./index.html" aria-current="page"
               >Home<span class="inline-icon material-icons">home</span></a
             >
           </li>
           <li>
-            <a class="contrast" href="./airports.html"
-              >Airports<span class="inline-icon material-icons"
-                >airport_shuttle</span
-              ></a
-            >
-          </li>
-          <li>
-            <a class="contrast" href="./routes.html"
-              >Routes<span class="inline-icon material-icons">route</span></a
-            >
-          </li>
-          <li>
-            <a class="contrast" href="./planes.html"
-              >Planes<span class="inline-icon material-icons"
-                >airplanemode_active</span
+            <a class="contrast" href="./airportsFinder.html"
+              >Airport Finder<span class="inline-icon material-icons"
+                >flight_takeoff</span
               ></a
             >
           </li>
@@ -95,7 +110,14 @@
             align-items: center;
           "
         >
-          <h1>Land, Sea and Air</h1>
+          <h1>
+            <a href="./index.html"
+              ><img
+                src="../assets/aerogis-logo-hori.png"
+                alt="AeroGIS"
+                width="150px"
+            /></a>
+          </h1>
           <a class="contrast" id="themeSwitcherMobile" onclick="toggleTheme()"
             ><span id="themeSwitcherIconMobile" class="material-icons"></span
           ></a>
@@ -110,23 +132,9 @@
                 >
               </li>
               <li>
-                <a class="contrast" href="./airports.html"
-                  >Airports<span class="inline-icon material-icons"
-                    >airport_shuttle</span
-                  ></a
-                >
-              </li>
-              <li>
-                <a class="contrast" href="./routes.html"
-                  >Routes<span class="inline-icon material-icons"
-                    >route</span
-                  ></a
-                >
-              </li>
-              <li>
-                <a class="contrast" href="./planes.html"
-                  >Planes<span class="inline-icon material-icons"
-                    >airplanemode_active</span
+                <a class="contrast" href="./airportsFinder.html"
+                  >Airport Finder<span class="inline-icon material-icons"
+                    >flight_takeoff</span
                   ></a
                 >
               </li>
@@ -141,24 +149,188 @@
     </header>
 
     <main class="container">
-      <h2>
-        Welcome to Land, Sea and Air<span class="inline-icon material-icons"
-          >waving_hand</span
-        >
-      </h2>
       <noscript>
         <p style="color: red">JavaScript is required to view this map.</p>
       </noscript>
 
-      <div id="map" style="height: 500px; width: 100%">
+      <div class="centred-content">
+        <h2>AeroGIS</h2>
+
+        <p>
+          Welcome to AeroGIS, your comprehensive resource for exploring airports
+          across the United Kingdom. Whether you're an aviation enthusiast, a
+          traveler, or a professional in the field, AeroGIS offers a suite of
+          tools to help you discover and learn about UK airports.
+        </p>
+
+        <p>
+          Sample some of our interactive map features below! <br />
+          <small
+            >(<b>Hint:</b> Click on the letter
+            <b style="color: #f29828">"A"</b>)</small
+          >
+        </p>
+      </div>
+
+      <div id="map" class="map-container" style="height: 400px">
         <!-- Map will be rendered here via JavaScript -->
       </div>
 
+      <div>
+        <h3>Features</h3>
+
+        <ul>
+          <li>
+            <strong>Interactive Maps:</strong> Explore airports around the UK
+            with our interactive maps powered by Google Maps API.
+          </li>
+          <li>
+            <strong>Airport Finder:</strong> Use our Airport Finder tool to
+            locate airports based on Postcode.
+          </li>
+          <li>
+            <strong>Airport Wiki:</strong> Access a wealth of information about
+            airports, including history, facilities, and more.
+          </li>
+          <li>
+            <strong>Airport Top Down:</strong> Get a birds-eye view of any
+            airport within the UK. Including a to scale polygon of the
+            runway(s).
+          </li>
+        </ul>
+
+        <h3>Getting Started</h3>
+        <p>
+          To begin exploring with AeroGIS, simply navigate to the Airport Finder
+          page.
+        </p>
+
+        <button
+          onclick="location.href='./airportsFinder.html'"
+          class="contrast"
+        >
+          Go to Airport Finder<span class="inline-icon material-icons"
+            >flight_takeoff</span
+          >
+        </button>
+
+        <h3>Credits and References</h3>
+        <h4>Data Sources</h4>
+        <ul>
+          <li>
+            Airport and Runway data sourced from the
+            <a href="https://ourairports.com/data/" target="_blank"
+              >OurAirports</a
+            >
+            database.
+          </li>
+          <li>
+            Map functionality powered by the
+            <a
+              href="https://developers.google.com/maps/documentation/javascript/overview"
+              target="_blank"
+              >Google Maps API</a
+            >.
+          </li>
+          <li>
+            UK Postcode data sourced from the
+            <a
+              href="https://osdatahub.os.uk/data/downloads/open/CodePointOpen"
+              target="_blank"
+              >Code Point Open Dataset</a
+            >.
+          </li>
+          <li>
+            UK borders sourced from
+            <a
+              href="https://www.data.gov.uk/dataset/96f3e623-6e54-4df2-808c-48dba5c98b55/countries-december-2021-boundaries-uk-bgc"
+              target="_blank"
+              >UK Boundaries BGC</a
+            >.
+          </li>
+        </ul>
+        <h4>Utilities</h4>
+        <ul>
+          <li>
+            GetTheData API -
+            <a href="https://www.getthedata.com/bng2latlong" target="_blank"
+              >https://www.getthedata.com/bng2latlong</a
+            >
+            <ul>
+              <li>
+                Used for converting British National Grid (BNG) coordinates to
+                Latitude and Longitude.
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <h4>Imports</h4>
+        <ul>
+          <li>
+            Pico CSS -
+            <a href="https://picocss.com/" target="_blank"
+              >https://picocss.com/</a
+            >
+          </li>
+          <li>
+            FontAwesome Icons -
+            <a href="https://fontawesome.com/" target="_blank"
+              >https://fontawesome.com/</a
+            >
+          </li>
+          <li>
+            Material Icons -
+            <a href="https://fonts.google.com/icons" target="_blank"
+              >https://fonts.google.com/icons</a
+            >
+          </li>
+        </ul>
+      </div>
+
       <script>
-        loadMapsAPI(apiKey);
+        loadMapsAPI(apiKey, "loadHomepageMap");
       </script>
     </main>
 
-    <footer class="container"></footer>
+    <footer class="container">
+      <a href="#" class="button"
+        ><span class="material-icons back-to-top-icon">arrow_upward</span>Back
+        to Top<span class="material-icons back-to-top-icon"
+          >arrow_upward</span
+        ></a
+      >
+      <hr />
+      <p>
+        <small>&copy; 2025 AeroGIS. All rights reserved.</small>
+      </p>
+      <p>
+        <small
+          >Developed by Kieran Pritchard | IS3S665 GIS and the Spatial Web @ The
+          University of South Wales</small
+        >
+      </p>
+      <p>
+        <small>
+          <i class="fab fa-github"></i>
+          <a href="https://github.com/TotalDwarf03/aeroGIS" target="_blank"
+            >Repository</a
+          >
+          |
+          <i class="fab fa-github"></i>
+          <a href="https://github.com/TotalDwarf03" target="_blank"
+            >GitHub Profile</a
+          >
+          |
+          <i class="fab fa-linkedin"></i>
+          <a href="https://www.linkedin.com/in/kprit-dev/" target="_blank"
+            >LinkedIn Profile</a
+          >
+          |
+          <i class="fas fa-globe"></i>
+          <a href="https://totaldwarf.dev" target="_blank">Website</a>
+        </small>
+      </p>
+      <img src="../assets/aerogis-logo-vert.png" alt="AeroGIS" width="100px" />
+    </footer>
   </body>
 </html>

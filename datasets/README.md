@@ -16,3 +16,7 @@ This directory contains various datasets used within the project. Each dataset i
   - **Source**: [https://osdatahub.os.uk/data/downloads/open/CodePointOpen](https://osdatahub.os.uk/data/downloads/open/CodePointOpen)
   - **Contents**: UK postcode dataset.
   - **README**: See [`codePointOpen/README.md`](codePointOpen/README.md) for more details.
+- **AeroGIS**
+  - **Source**: Manually created.
+  - **Contents**: The word "AeroGIS" laid over the UK as a polygon.
+  - **README**: See [`aeroGIS/README.md`](aeroGIS/README.md) for more details.
