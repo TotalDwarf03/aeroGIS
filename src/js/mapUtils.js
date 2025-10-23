@@ -1,4 +1,13 @@
+/**
+ * Loads the homepage map.
+ * 
+ * @returns {Promise<google.maps.Map>} A promise that resolves to the Google Map instance.
+ */
 async function loadHomepageMap() {
+  const { ColorScheme, ControlPosition } =
+    await google.maps.importLibrary("core");
+  const { Map, MapTypeId } = await google.maps.importLibrary("maps");
+
   const centre = await fetch("../../datasets/aeroGIS/aeroGIS-centroid.json")
     .then((response) => response.json())
     .then((data) => {
@@ -8,7 +17,7 @@ async function loadHomepageMap() {
   const mapOptions = {
     center: centre,
     zoom: 6,
-    mapTypeId: google.maps.MapTypeId.TERRAIN,
+    mapTypeId: MapTypeId.TERRAIN,
     disableDefaultUI: true,
     disableDoubleClickZoom: true,
     fullscreenControl: true,
@@ -16,12 +25,10 @@ async function loadHomepageMap() {
     maxZoom: 6,
     minZoom: 4,
     colorScheme:
-      getCurrentTheme() === "dark"
-        ? google.maps.ColorScheme.DARK
-        : google.maps.ColorScheme.LIGHT,
+      getCurrentTheme() === "dark" ? ColorScheme.DARK : ColorScheme.LIGHT,
   };
 
-  const map = new google.maps.Map(document.getElementById("map"), mapOptions);
+  const map = new Map(document.getElementById("map"), mapOptions);
 
   map.data.loadGeoJson("../../datasets/aeroGIS/aeroGIS.geojson");
 
@@ -42,9 +49,7 @@ async function loadHomepageMap() {
   // See: https://developers.google.com/maps/documentation/javascript/datalayer#data_layer_events
 
   map.data.setControls(["Point", "LineString", "Polygon"]);
-  map.data.setControlPosition(
-    google.maps.ControlPosition.BLOCK_END_INLINE_CENTER,
-  );
+  map.data.setControlPosition(ControlPosition.BLOCK_END_INLINE_CENTER);
 
   return map;
 }
