@@ -47,6 +47,12 @@ footer {
   margin-bottom: 2rem;
 }
 
+/* Overwrite Pico CSS role=button due to breaking Google Maps */
+[role="button"] {
+  background-color: transparent !important;
+  border: none !important;
+}
+
 @media (min-width: 576px) {
   nav,
   nav ul {

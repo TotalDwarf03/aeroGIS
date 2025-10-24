@@ -50,3 +50,19 @@ Using the modified runway datasets, I was able to generate a polygon dataset rep
   - Finally, I used the "Buffer" tool within QGIS (Vector > Geoprocessing Tools > Buffer) to create the runway polygons, using the buffer_m field as the buffer distance.
 - The final output was saved in GeoJSON format (with the CRS EPSG:4326) as:
   - `ourAirports-runway-polys.geojson`: Contains the runway surface polygons and their attributes (i.e. surface material).
+
+## Data Size Management and Website Optimisation
+
+To improve performance and reduce load times on the website, I split each dataset into separate files based on country. This allows the website to only load the necessary data for the selected country, rather than loading the entire dataset at once.
+
+To do this in QGIS I:
+
+- Loaded each dataset into QGIS (`ourAirports-airports.geojson`, `ourAirports-runway-polys.geojson`).
+- Loaded the UK Boundaries Countries dataset (`ukBoundaries-countries.geojson`). See the [UK Boundaries README](../ukBoundaries/README.md) for more information.
+- For each country in the UK Boundaries dataset:
+  - Filtered the boundary to the specific country.
+  - Using the "Extract by location" tool within the processing toolbox, I extracted features from the OurAirports datasets that "are within" the selected country boundary.
+  - Exported the extracted features to new GeoJSON files named according to the country, e.g.:
+    - `ourAirports-airports-England.geojson`
+    - `ourAirports-runway-polys-England.geojson`
+    - And so on for Scotland, Wales and Northern Ireland.

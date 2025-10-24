@@ -20,9 +20,9 @@
     <meta name="apple-mobile-web-app-title" content="AeroGIS" />
     <link rel="manifest" href="./favicon/site.webmanifest" />
 
-    <title>AeroGIS | Home</title>
+    <title>AeroGIS | Airport Finder</title>
 
-    <script src="./js/homepage/initialiseMap.js"></script>
+    <script src="./js/airportFinder/initialiseMap.js"></script>
     <script src="./js/loadMapsApi.js"></script>
     <script src="./setApiKey.js"></script>
 
@@ -82,12 +82,12 @@
         </ul>
         <ul>
           <li>
-            <a class="contrast" href="./index.html" aria-current="page"
+            <a class="contrast" href="./index.html"
               >Home<span class="inline-icon material-icons">home</span></a
             >
           </li>
           <li>
-            <a class="contrast" href="./airportFinder.html"
+            <a class="contrast" href="./airportFinder.html" aria-current="page"
               >Airport Finder<span class="inline-icon material-icons"
                 >flight_takeoff</span
               ></a
@@ -134,12 +134,15 @@
           <nav>
             <ul>
               <li>
-                <a class="contrast" href="./index.html" aria-current="page"
+                <a class="contrast" href="./index.html"
                   >Home<span class="inline-icon material-icons">home</span></a
                 >
               </li>
               <li>
-                <a class="contrast" href="./airportFinder.html"
+                <a
+                  class="contrast"
+                  href="./airportFinder.html"
+                  aria-current="page"
                   >Airport Finder<span class="inline-icon material-icons"
                     >flight_takeoff</span
                   ></a
@@ -161,152 +164,102 @@
       </noscript>
 
       <div class="centred-content">
-        <h2>AeroGIS</h2>
+        <h2>
+          Airport Finder
+          <span class="material-icons inline-icon">flight_takeoff</span>
+        </h2>
 
         <p>
-          Welcome to AeroGIS, your comprehensive resource for exploring airports
-          across the United Kingdom. Whether you're an aviation enthusiast, a
-          traveler, or a professional in the field, AeroGIS offers a suite of
-          tools to help you discover and learn about UK airports.
+          Welcome to the AeroGIS Airport Finder! Use the interactive map below
+          to locate airports around the world.
         </p>
 
         <p>
-          Sample some of our interactive map features below! <br />
-          <small
-            >(<b style="color: #f29828">Hint:</b> Click on the
-            <b
-              >"<span style="color: #205d95">aero</span
-              ><span style="color: #81bc37">GIS</span>"</b
-            >
-            logo)</small
-          >
+          Simply select a country to zoom in and explore the airports within
+          that region. Click on the airport markers to view detailed information
+          about each airport.
         </p>
       </div>
 
-      <div id="map-container-grid" class="grid">
+      <div id="map-container-grid">
         <div id="map" class="map-container" style="height: 400px">
           <!-- Map will be rendered here via JavaScript -->
         </div>
+        <p class="centred-content">
+          <small>
+            <b>Note:</b> This map can sometimes be a bit slow due to the volume
+            of data. <br />Please be patient while it loads.
+          </small>
+        </p>
       </div>
 
       <div>
-        <h3>Features</h3>
-
-        <ul>
-          <li>
-            <strong>Interactive Maps:</strong> Explore airports around the UK
-            with our interactive maps powered by Google Maps API.
-          </li>
-          <li>
-            <strong>Airport Finder:</strong> Use our Airport Finder tool to
-            locate airports based on Postcode.
-          </li>
-          <li>
-            <strong>Airport Wiki:</strong> Access a wealth of information about
-            airports, including history, facilities, and more.
-          </li>
-          <li>
-            <strong>Airport Top Down:</strong> Get a birds-eye view of any
-            airport within the UK. Including a to scale polygon of the
-            runway(s).
-          </li>
-        </ul>
-
-        <h3>Getting Started</h3>
-        <p>
-          To begin exploring with AeroGIS, simply navigate to the Airport Finder
-          page.
-        </p>
-
-        <button onclick="location.href='./airportFinder.html'" class="contrast">
-          Go to Airport Finder<span class="inline-icon material-icons"
-            >flight_takeoff</span
-          >
-        </button>
-
-        <h3>Credits and References</h3>
-        <h4>Data Sources</h4>
-        <ul>
-          <li>
-            Airport and Runway data sourced from the
-            <a href="https://ourairports.com/data/" target="_blank"
-              >OurAirports</a
-            >
-            database.
-          </li>
-          <li>
-            UK Postcode data sourced from the
-            <a
-              href="https://osdatahub.os.uk/data/downloads/open/CodePointOpen"
-              target="_blank"
-              >Code Point Open Dataset</a
-            >.
-          </li>
-          <li>
-            UK borders sourced from
-            <a
-              href="https://www.data.gov.uk/dataset/96f3e623-6e54-4df2-808c-48dba5c98b55/countries-december-2021-boundaries-uk-bgc"
-              target="_blank"
-              >UK Boundaries BGC</a
-            >.
-          </li>
-        </ul>
-        <h4>Utilities</h4>
-        <ul>
-          <li>
-            Map functionality powered by the
-            <a
-              href="https://developers.google.com/maps/documentation/javascript/overview"
-              target="_blank"
-              >Google Maps API</a
-            >.
-          </li>
-          <li>
-            GetTheData API -
-            <a href="https://www.getthedata.com/bng2latlong" target="_blank"
-              >https://www.getthedata.com/bng2latlong</a
-            >
-            <ul>
-              <li>
-                Used for converting British National Grid (BNG) coordinates to
-                Latitude and Longitude.
-              </li>
-            </ul>
-          </li>
-        </ul>
-        <h4>Imports</h4>
-        <ul>
-          <li>
-            Pico CSS -
-            <a href="https://picocss.com/" target="_blank"
-              >https://picocss.com/</a
-            >
-          </li>
-          <li>
-            Toastify.js -
-            <a href="https://apvarun.github.io/toastify-js/" target="_blank"
-              >https://apvarun.github.io/toastify-js/</a
-            >
-          </li>
-          <li>
-            Canvas Confetti -
-            <a href="https://github.com/catdad/canvas-confetti" target="_blank"
-              >https://github.com/catdad/canvas-confetti</a
-            >
-          </li>
-          <li>
-            FontAwesome Icons -
-            <a href="https://fontawesome.com/" target="_blank"
-              >https://fontawesome.com/</a
-            >
-          </li>
-          <li>
-            Material Icons -
-            <a href="https://fonts.google.com/icons" target="_blank"
-              >https://fonts.google.com/icons</a
-            >
-          </li>
-        </ul>
+        <h3>Key:</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Icon</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Small Airport</td>
+              <td>
+                <img
+                  src="./mapIcons/small_airport.png"
+                  alt="Small Airport Icon"
+                  width="48"
+                  height="48"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Medium Airport</td>
+              <td>
+                <img
+                  src="./mapIcons/medium_airport.png"
+                  alt="Medium Airport Icon"
+                  width="48"
+                  height="48"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Large Airport</td>
+              <td>
+                <img
+                  src="./mapIcons/large_airport.png"
+                  alt="Large Airport Icon"
+                  width="48"
+                  height="48"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Heliport</td>
+              <td>
+                <img
+                  src="./mapIcons/heliport.png"
+                  alt="Heliport Icon"
+                  width="48"
+                  height="48"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Closed Airport</td>
+              <td>
+                <img
+                  src="./mapIcons/closed_airport.png"
+                  alt="Closed Airport Icon"
+                  width="48"
+                  height="48"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </main>
 
@@ -351,7 +304,7 @@
       <img src="../assets/aerogis-logo-vert.png" alt="AeroGIS" width="100px" />
     </footer>
 
-    <!-- Load the Google Maps API and initialise the homepage map -->
+    <!-- Load the Google Maps API and initialise the map -->
     <script>
       loadMapsAPI(apiKey);
       initMap();
@@ -362,8 +315,5 @@
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/toastify-js"
     ></script>
-
-    <!-- Load Canvas Confetti -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
   </body>
 </html>
