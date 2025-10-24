@@ -35,4 +35,27 @@ function handleAClick(event, map) {
   sessionStorage.setItem("a_clicked", !aClicked);
 }
 
-export { handleAClick };
+function handleRDoubleClick(event, map) {
+  const feature = event.feature;
+  map.data.setStyle(function (feature) {
+    let colour;
+
+    if (feature.getProperty("letter") === "r") {
+      colour = "#ff0000";
+    } else {
+      var id = feature.getProperty("id");
+      colour = id > 3 ? "#81bc37" : "#205d95";
+    }
+
+    return {
+      fillColor: colour,
+      fillOpacity: 0.8,
+      strokeColor: colour,
+      strokeWeight: 3,
+      strokeOpacity: 1,
+      draggable: true,
+    };
+  });
+}
+
+export { handleAClick, handleRDoubleClick };

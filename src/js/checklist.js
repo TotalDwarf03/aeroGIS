@@ -32,6 +32,30 @@ class EasterEggChecklist {
         criteria: "Click on the 'E' feature.",
         completed: false,
       },
+      rIsForRed: {
+        uiKey: "r-is-for-red",
+        name: "R is for Red",
+        criteria: "Right-click on the 'R' feature.",
+        completed: false,
+      },
+      putMeDown: {
+        uiKey: "put-me-down",
+        name: "Put Me Down!!",
+        criteria: "Move any geometry feature.",
+        completed: false,
+      },
+      itsAlive: {
+        uiKey: "its-alive",
+        name: "It's Alive!",
+        criteria: "Add a new geometry feature.",
+        completed: false,
+      },
+      snapCracklePop: {
+        uiKey: "snap-crackle-pop",
+        name: "Snap, Crackle, Pop!",
+        criteria: "Remove the 'S' feature by double-clicking.",
+        completed: false,
+      },
     };
     this.initialised = false;
   }

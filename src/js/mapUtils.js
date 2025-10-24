@@ -110,6 +110,7 @@ async function loadHomepageMap() {
 
   // Add session variable to keep track of interactions
   sessionStorage.setItem("a_clicked", "false");
+  sessionStorage.setItem("r_clicked", "false");
 
   // Add a hover listener to change the element if hovered
   // This will change strokeWeight to emphasise the feature being hovered over
@@ -145,6 +146,38 @@ async function loadHomepageMap() {
         text: "Try clicking the AeroGIS logo first ;)",
         duration: 3000,
       }).showToast();
+    }
+  });
+
+  map.data.addListener("dblclick", (event) => {
+    const feature = event.feature;
+    const letter = feature.getProperty("letter");
+
+    if (checklist.initialised) {
+      switch (letter) {
+        case "r":
+          letterFunctions.handleRDoubleClick(event, map);
+          checklist.markEggAsCompleted("rIsForRed");
+          break;
+        case "s":
+          map.data.remove(feature);
+          checklist.markEggAsCompleted("snapCracklePop");
+          break;
+        default:
+          console.log(`No right-click handler defined for letter: ${letter}`);
+      }
+    }
+  });
+
+  map.data.addListener("");
+
+  map.data.addListener("setgeometry", (event) => {
+    checklist.markEggAsCompleted("putMeDown");
+  });
+
+  map.data.addListener("addfeature", (event) => {
+    if (checklist.initialised) {
+      checklist.markEggAsCompleted("itsAlive");
     }
   });
 
