@@ -103,4 +103,21 @@ For more information on the Google Maps JavaScript API, please refer to the offi
 
 ## Credits and Acknowledgements
 
-TODO: List any credits or acknowledgements here.
+### Data Sources
+
+- Airport and Runway Data: [OpenFlights](https://openflights.org/data)
+- UK Postcode Data: [Ordnance Survey Code-Point Open](https://osdatahub.os.uk/data/downloads/open/CodePointOpen)
+- UK Border Data: [UK Boundaries BGC](https://www.data.gov.uk/dataset/96f3e623-6e54-4df2-808c-48dba5c98b55/countries-december-2021-boundaries-uk-bgc)
+
+### Primary Libraries & APIs
+
+- Google Maps JavaScript API: [Google Maps API](https://developers.google.com/maps/documentation/javascript/overview)
+- GetTheData API: [GetTheData - BNG to Lat/Long](https://www.getthedata.com/bng2latlong)
+
+### Additional Imports
+
+- Pico CSS: [Pico CSS Framework](https://picocss.com/)
+- Toastify.js: [Toastify.js Library](https://github.com/apvarun/toastify-js)
+- Canvas Confetti: [Canvas Confetti Library](https://github.com/catdad/canvas-confetti)
+- FontAwesome Icons: [FontAwesome](https://fontawesome.com/)
+- Google Material Icons: [Google Material Icons](https://fonts.google.com/icons)
