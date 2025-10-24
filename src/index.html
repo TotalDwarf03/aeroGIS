@@ -55,6 +55,13 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
+    <!-- Toastify.js -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
   </head>
 
   <body>
@@ -166,14 +173,20 @@
         <p>
           Sample some of our interactive map features below! <br />
           <small
-            >(<b>Hint:</b> Click on the letter
-            <b style="color: #f29828">"A"</b>)</small
+            >(<b style="color: #f29828">Hint:</b> Click on the
+            <b
+              >"<span style="color: #205d95">aero</span
+              ><span style="color: #81bc37">GIS</span>"</b
+            >
+            logo)</small
           >
         </p>
       </div>
 
-      <div id="map" class="map-container" style="height: 400px">
-        <!-- Map will be rendered here via JavaScript -->
+      <div id="map-container-grid" class="grid">
+        <div id="map" class="map-container" style="height: 400px">
+          <!-- Map will be rendered here via JavaScript -->
+        </div>
       </div>
 
       <div>
@@ -273,6 +286,18 @@
             >
           </li>
           <li>
+            Toastify.js -
+            <a href="https://apvarun.github.io/toastify-js/" target="_blank"
+              >https://apvarun.github.io/toastify-js/</a
+            >
+          </li>
+          <li>
+            Canvas Confetti -
+            <a href="https://github.com/catdad/canvas-confetti" target="_blank"
+              >https://github.com/catdad/canvas-confetti</a
+            >
+          </li>
+          <li>
             FontAwesome Icons -
             <a href="https://fontawesome.com/" target="_blank"
               >https://fontawesome.com/</a
@@ -286,11 +311,6 @@
           </li>
         </ul>
       </div>
-
-      <script>
-        loadMapsAPI(apiKey);
-        loadHomepageMap();
-      </script>
     </main>
 
     <footer class="container">
@@ -333,5 +353,20 @@
       </p>
       <img src="../assets/aerogis-logo-vert.png" alt="AeroGIS" width="100px" />
     </footer>
+
+    <!-- Load the Google Maps API and initialise the homepage map -->
+    <script>
+      loadMapsAPI(apiKey);
+      loadHomepageMap();
+    </script>
+
+    <!-- Load Toastify.js -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+
+    <!-- Load Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
   </body>
 </html>

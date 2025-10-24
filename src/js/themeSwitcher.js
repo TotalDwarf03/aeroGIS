@@ -26,7 +26,10 @@ function toggleTheme() {
     }
   });
 
-  loadHomepageMap();
+  // This does not toggle the Google Map theme because you can only set it at initialization.
+  // See: https://developers.google.com/maps/documentation/javascript/reference/map#MapOptions.colorScheme
+  // I could make a workaround for this by re-initializing the map on theme change, but I don't want to
+  // spend time on that right now.
 }
 
 // Initialize button text on page load

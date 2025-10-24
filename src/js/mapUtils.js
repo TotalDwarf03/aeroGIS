@@ -1,10 +1,10 @@
 /**
  * Draws an image on the map within specified bounds.
  *
- * @param {google.maps.Map} map - The Google Map instance.
- * @param {string} imgPath - The path to the image to be drawn.
+ * @param {google.maps.Map} map The Google Map instance.
+ * @param {string} imgPath The path to the image to be drawn.
  * @param {google.maps.LatLngBoundsLiteral} bounds - The geographical bounds for the image.
- * @param {Object} [options] - Additional options for the GroundOverlay.
+ * @param {Object} [options] Additional options for the GroundOverlay.
  *
  * @returns {Promise<google.maps.GroundOverlay>} A promise that resolves to the GroundOverlay instance.
  */
@@ -30,6 +30,11 @@ async function loadHomepageMap() {
     await google.maps.importLibrary("core");
   const { Map, MapTypeId } = await google.maps.importLibrary("maps");
 
+  const { default: EasterEggChecklist } = await import("./checklist.js");
+
+  // Initialize Easter Egg Checklist
+  var checklist = new EasterEggChecklist();
+
   const centre = await fetch("../../datasets/aeroGIS/aeroGIS-centroid.json")
     .then((response) => response.json())
     .then((data) => {
@@ -46,29 +51,16 @@ async function loadHomepageMap() {
     fullscreenControl: true,
     keyboardShortcuts: false,
     minZoom: 4,
-    colorScheme:
-      getCurrentTheme() === "dark" ? ColorScheme.DARK : ColorScheme.LIGHT,
+    colorScheme: ColorScheme.LIGHT,
+    // Keep the map in light mode only for now.
+    // I don't have the time to fully implement the theme switching right now.
+    // colorScheme: getCurrentTheme() === "dark" ? ColorScheme.DARK : ColorScheme.LIGHT,
   };
 
   const map = new Map(document.getElementById("map"), mapOptions);
 
-  map.data.loadGeoJson("../../datasets/aeroGIS/aeroGIS.geojson");
-
-  map.data.setStyle(function (feature) {
-    var id = feature.getProperty("id");
-    var colour = id > 3 ? "#81bc37" : "#205d95";
-    return {
-      fillColor: colour,
-      fillOpacity: 0.8,
-      strokeColor: colour,
-      strokeWeight: 3,
-      strokeOpacity: 1,
-      draggable: true,
-    };
-  });
-
-  map.data.setControls(["Point", "LineString", "Polygon"]);
-  map.data.setControlPosition(ControlPosition.BLOCK_END_INLINE_CENTER);
+  // Add AeroGIS logo as a clickable overlay
+  // This is used to initiate an Easter Egg tracker
 
   logoBoundsData = await fetch(
     "../../datasets/aeroGIS/aeroGIS-logo-bounds.json",
@@ -87,8 +79,74 @@ async function loadHomepageMap() {
     imageBounds,
   );
 
-  // TODO: Make letters do something on interaction (click/hover/etc.)
-  // See: https://developers.google.com/maps/documentation/javascript/datalayer#data_layer_events
+  logoGroundOverlay.addListener("click", async () => {
+    checklist.createUIChecklist();
+
+    // Remove the logo from the map after clicking
+    removeImageFromMap(logoGroundOverlay);
+  });
+
+  // Load AeroGIS GeoJSON data and style it
+
+  map.data.loadGeoJson("../../datasets/aeroGIS/aeroGIS.geojson");
+
+  map.data.setStyle(function (feature) {
+    var id = feature.getProperty("id");
+    var colour = id > 3 ? "#81bc37" : "#205d95";
+    return {
+      fillColor: colour,
+      fillOpacity: 0.8,
+      strokeColor: colour,
+      strokeWeight: 3,
+      strokeOpacity: 1,
+      draggable: true,
+    };
+  });
+
+  // Add interaction to features
+
+  // Import letter functions
+  const letterFunctions = await import("./letterFunctions.js");
+
+  // Add session variable to keep track of interactions
+  sessionStorage.setItem("a_clicked", "false");
+
+  // Add a hover listener to change the element if hovered
+  // This will change strokeWeight to emphasise the feature being hovered over
+  map.data.addListener("mouseover", (event) => {
+    map.data.revertStyle();
+    map.data.overrideStyle(event.feature, { strokeWeight: 8 });
+  });
+
+  map.data.addListener("mouseout", (event) => {
+    map.data.revertStyle();
+  });
+
+  map.data.addListener("click", (event) => {
+    const feature = event.feature;
+    const letter = feature.getProperty("letter");
+
+    if (checklist.initialised) {
+      switch (letter) {
+        case "a":
+          letterFunctions.handleAClick(event, map);
+          checklist.markEggAsCompleted("invertColours");
+          break;
+        case "e":
+          map.data.setControls(["Point", "LineString", "Polygon"]);
+          map.data.setControlPosition(ControlPosition.BLOCK_END_INLINE_CENTER);
+          checklist.markEggAsCompleted("enableEditing");
+          break;
+        default:
+          console.log(`No click handler defined for letter: ${letter}`);
+      }
+    } else {
+      Toastify({
+        text: "Try clicking the AeroGIS logo first ;)",
+        duration: 3000,
+      }).showToast();
+    }
+  });
 
   return map;
 }
