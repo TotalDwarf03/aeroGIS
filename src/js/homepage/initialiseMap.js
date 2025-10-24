@@ -16,16 +16,21 @@ function drawImageOnMap(map, imgPath, bounds, options = {}) {
   return groundOverlay;
 }
 
+/**
+ * Removes an image from the map.
+ *
+ * @param {google.maps.GroundOverlay} groundOverlay The GroundOverlay instance to remove.
+ */
 function removeImageFromMap(groundOverlay) {
   groundOverlay.setMap(null);
 }
 
 /**
- * Loads the homepage map.
+ * Initializes the Google Map (Homepage).
  *
- * @returns {Promise<google.maps.Map>} A promise that resolves to the Google Map instance.
+ * @returns {Promise<google.maps.Map>} A promise that resolves to the initialized Google Map instance.
  */
-async function loadHomepageMap() {
+async function initMap() {
   const { ColorScheme, ControlPosition } =
     await google.maps.importLibrary("core");
   const { Map, MapTypeId } = await google.maps.importLibrary("maps");
@@ -108,9 +113,9 @@ async function loadHomepageMap() {
   // Import letter functions
   const letterFunctions = await import("./letterFunctions.js");
 
-  // Add session variable to keep track of interactions
+  // Add session variable to keep track of a clicks
+  // This is used to toggle the colour inversion on and off
   sessionStorage.setItem("a_clicked", "false");
-  sessionStorage.setItem("r_clicked", "false");
 
   // Add a hover listener to change the element if hovered
   // This will change strokeWeight to emphasise the feature being hovered over

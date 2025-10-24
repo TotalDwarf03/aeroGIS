@@ -35,8 +35,13 @@ function handleAClick(event, map) {
   sessionStorage.setItem("a_clicked", !aClicked);
 }
 
+/**
+ * Handle double-click events on the 'R' letter feature
+ *
+ * @param {MouseEvent} event The double-click event
+ * @param {Promise<google.maps.Map>} map The Google Map instance
+ */
 function handleRDoubleClick(event, map) {
-  const feature = event.feature;
   map.data.setStyle(function (feature) {
     let colour;
 
