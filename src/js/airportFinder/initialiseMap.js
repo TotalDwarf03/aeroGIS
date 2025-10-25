@@ -40,12 +40,20 @@ function removeImageFromMap(groundOverlay) {
   groundOverlay.setMap(null);
 }
 
+/**
+ * Removes all data from the map.
+ * @param {google.maps.Map} map The Google Map instance to remove data from.
+ */
 function removeAllMapData(map) {
   map.data.forEach((feature) => {
     map.data.remove(feature);
   });
 }
 
+/**
+ * Shows the country polygons on the map.
+ * @param {google.maps.Map} map The Google Map instance to show the country polygons on.
+ */
 async function showCountryPolygons(map) {
   map.data.loadGeoJson(
     "../../datasets/ukBoundaries/ukBoundaries-countries.geojson",
@@ -124,6 +132,11 @@ async function showCountryPolygons(map) {
   });
 }
 
+/**
+ * Shows the airport markers on the map.
+ * @param {google.maps.Map} map The Google Map instance to show the airport markers on.
+ * @param {string} countryName The name of the country to show airport markers for.
+ */
 function showAirportMarkers(map, countryName) {
   countryName = countryName.replace(" ", "_").toLowerCase();
 
