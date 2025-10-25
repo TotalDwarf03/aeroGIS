@@ -23,6 +23,7 @@
     <title>AeroGIS | Airport Finder</title>
 
     <script src="./js/airportFinder/initialiseMap.js"></script>
+    <script src="./js/airportFinder/searchByPostcode.js"></script>
     <script src="./js/loadMapsApi.js"></script>
     <script src="./setApiKey.js"></script>
 
@@ -179,9 +180,22 @@
           that region. Click on the airport markers to view detailed information
           about each airport.
         </p>
+
+        <p>
+          You can also search the map by postcode to find airports near you!
+        </p>
       </div>
 
+      <hr />
+
+      <form role="search" onsubmit="return false;">
+        <input name="search" type="search" placeholder="Enter a postcode" />
+        <input type="submit" value="Search" onclick="searchByPostcode()" />
+      </form>
+
       <div id="map-container-grid">
+        <div id="info-panel" class="info-panel"></div>
+
         <div id="map" class="map-container" style="height: 400px">
           <!-- Map will be rendered here via JavaScript -->
         </div>

@@ -34,3 +34,16 @@ The final outputs were saved in GeoJSON format as:
 
 - `ukBoundaries-countries.geojson`: Contains the country polygons.
 - `ukBoundaries-borders.geojson`: Contains the country border lines.
+
+## Data Management and Performance (borders only)
+
+In order to make the border dataset easier to work with and improve performance, I have split up the borders into individual files for each country border:
+
+- `ukBoundaries-borders-england.geojson`
+- `ukBoundaries-borders-scotland.geojson`
+- `ukBoundaries-borders-wales.geojson`
+- `ukBoundaries-borders-northern_ireland.geojson`
+
+This allows for loading only the necessary border data when visualising a specific country, rather than loading the entire dataset at once.
+
+I created this dataset by filtering the layer in QGIS by the `CTRY21NM` attribute, which contains the country name and exporting the filtered results to a new GeoJSON file.

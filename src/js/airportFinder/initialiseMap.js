@@ -128,6 +128,17 @@ function showAirportMarkers(map, countryName) {
   countryName = countryName.replace(" ", "_").toLowerCase();
 
   map.data.loadGeoJson(
+    `../../datasets/ukBoundaries/ukBoundaries-borders-${countryName}.geojson`,
+    null,
+    () => {
+      map.data.setStyle({
+        strokeColor: "black",
+        strokeWeight: 1,
+      });
+    },
+  );
+
+  map.data.loadGeoJson(
     `../../datasets/ourAirports/${countryName}/ourAirports-airports.geojson`,
     null,
     () => {
@@ -171,6 +182,7 @@ async function initMap() {
     center: centre,
     zoom: 5,
     mapTypeId: MapTypeId.ROADMAP,
+    mapTypeControl: true,
     disableDoubleClickZoom: true,
     zoomControl: false,
     scrollwheel: false,
@@ -183,8 +195,38 @@ async function initMap() {
 
   const map = new Map(document.getElementById("map"), mapOptions);
 
-  // Load polygons initially
-  showCountryPolygons(map);
+  // See if the search results are set in session storage
+  const searchLongitude = sessionStorage.getItem("searchLongitude");
+  const searchLatitude = sessionStorage.getItem("searchLatitude");
+  const searchPostcode = sessionStorage.getItem("searchPostcode");
+
+  if (searchLongitude && searchLatitude && searchPostcode) {
+    const lat = parseFloat(searchLatitude);
+    const lng = parseFloat(searchLongitude);
+
+    const infoPanel = document.getElementById("info-panel");
+    infoPanel.innerHTML = `
+      <h2>Search Results</h2>
+      <p>Showing airports near <b style="color: #f29828;">${searchPostcode}</b> (${lat.toFixed(4)}, ${lng.toFixed(4)})</p>
+      <small>(You can refresh the page to clear the results)</small>`;
+
+    // Clear the search results from session storage
+    sessionStorage.removeItem("searchLongitude");
+    sessionStorage.removeItem("searchLatitude");
+    sessionStorage.removeItem("searchPostcode");
+
+    // Pan and zoom to the searched location
+    map.setCenter({ lat: lat, lng: lng });
+    map.setZoom(10);
+    map.scrollwheel = true;
+    map.maxZoom = 15;
+  } else {
+    // Load polygons initially
+    showCountryPolygons(map);
+  }
+
+  // TODO: Add a custom map control to reset the map to the initial state
+  // See: https://developers.google.com/maps/documentation/javascript/controls#CustomExample
 
   return map;
 }
