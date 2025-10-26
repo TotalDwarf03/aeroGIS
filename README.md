@@ -12,7 +12,10 @@ The curriculum for the module can be found here: [IS3S665 - GIS and the Spatial 
 
 ## Features
 
-TODO: List the main features of the project here once finished.
+- **Interactive Maps:** Explore airports across the UK using dynamic maps powered by the Google Maps API.
+- **Airport Finder:** Locate airports by entering a UK postcode or exploring by country.
+- **Airport Wiki:** View detailed information about each airport, including runway information and geographic position.
+- **Airport Top Down:** See a scaled, top-down polygon view of airport runways throughout the UK.
 
 ## Getting Started
 
