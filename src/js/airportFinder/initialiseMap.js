@@ -10,6 +10,7 @@ airportTypeIconMap = {
   medium_airport: "./mapIcons/medium_airport.png",
   small_airport: "./mapIcons/small_airport.png",
   heliport: "./mapIcons/heliport.png",
+  seaplane_base: "./mapIcons/seaplane_base.png",
   closed: "./mapIcons/closed_airport.png",
 };
 
@@ -187,12 +188,18 @@ function showAirportMarkers(map, infoWindow, countryName) {
         const municipality = feature.getProperty("municipality") || "Unknown";
         const home_link = feature.getProperty("home_link") || "#";
 
+        const airportId = feature.getProperty("id") || null;
+        if (airportId) {
+          // Store the airport ID in session storage for the details page
+          sessionStorage.setItem("selectedAirportId", airportId);
+        }
+
         // Set content for the info window
         infoWindow.setContent(`
           <div style="padding:10px;">
             <span style="display: flex; align-items: center; padding-bottom: 10px;"><img src="${airportTypeIconMap[type] || "./mapIcons/default_airport.png"}" alt="${type}" style="width: 50px; height: 50px; margin-right: 10px;" /><h3 style="margin: 0;">${name}</h3></span>
             <p>
-              <b>Location:</b> ${municipality}
+              <b>Location:</b> ${municipality} | <b>Type:</b> ${type}
             </p>
             <hr>
             <div class="grid">
@@ -206,7 +213,7 @@ function showAirportMarkers(map, infoWindow, countryName) {
                   }
               </div>
               <div style="text-align: right;">
-                <a href="#">Find out more <span class="material-icons" style="vertical-align: middle;">arrow_circle_right</span></a>
+                <a href="./airportDetails.html">Find out more <span class="material-icons" style="vertical-align: middle;">arrow_circle_right</span></a>
               </div>
             </div>
           </div>
@@ -235,7 +242,7 @@ function createResetMapControl(map, infoWindow) {
     infoWindow.close();
     google.maps.event.clearListeners(map.data, "click");
     removeAllMapData(map);
-    showCountryPolygons(map);
+    showCountryPolygons(map, infoWindow);
 
     // Reset map view
     fetch("../../datasets/aeroGIS/aeroGIS-centroid.json")
