@@ -53,8 +53,9 @@ function removeAllMapData(map) {
 /**
  * Shows the country polygons on the map.
  * @param {google.maps.Map} map The Google Map instance to show the country polygons on.
+ * @param {google.maps.InfoWindow} infoWindow The InfoWindow instance to display country details.
  */
-async function showCountryPolygons(map) {
+async function showCountryPolygons(map, infoWindow) {
   map.data.loadGeoJson(
     "../../datasets/ukBoundaries/ukBoundaries-countries.geojson",
     null,
@@ -130,7 +131,7 @@ async function showCountryPolygons(map) {
 
     removeImageFromMap(imageGroundOverlay);
     removeAllMapData(map);
-    showAirportMarkers(map, countryName);
+    showAirportMarkers(map, infoWindow, countryName);
 
     // Pan and zoom to the country
     map.setCenter({ lat: lat, lng: lng });
@@ -143,19 +144,14 @@ async function showCountryPolygons(map) {
 /**
  * Shows the airport markers on the map.
  * @param {google.maps.Map} map The Google Map instance to show the airport markers on.
+ * @param {google.maps.InfoWindow} infoWindow The InfoWindow instance to display airport details.
  * @param {string} countryName The name of the country to show airport markers for.
  */
-function showAirportMarkers(map, countryName) {
+function showAirportMarkers(map, infoWindow, countryName) {
   countryName = countryName.replace(" ", "_").toLowerCase();
 
   map.data.loadGeoJson(
     `../../datasets/ukBoundaries/ukBoundaries-borders-${countryName}.geojson`,
-    null,
-    () => {
-      map.data.setStyle({
-        strokeColor: "lightgray",
-      });
-    },
   );
 
   map.data.loadGeoJson(
@@ -173,12 +169,49 @@ function showAirportMarkers(map, countryName) {
           icon: {
             url: iconUrl,
             scaledSize: new google.maps.Size(25, 25),
+            anchor: new google.maps.Point(12, 12),
           },
           title: name,
         };
       });
+      
+      map.data.addListener("click", (event) => {
+        const feature = event.feature;
 
-      // TODO: Add a click listener to show info window with airport details
+        // Close any open info windows
+        infoWindow.close();
+
+        // Collect clicked airport details
+        const name = feature.getProperty("name") || "Unknown Airport";
+        const type = feature.getProperty("type") || "Unknown";
+        const municipality = feature.getProperty("municipality") || "Unknown";
+        const home_link = feature.getProperty("home_link") || "#";
+
+        // Set content for the info window
+        infoWindow.setContent(`
+          <div style="padding:10px;">
+            <span style="display: flex; align-items: center; padding-bottom: 10px;"><img src="${airportTypeIconMap[type] || "./mapIcons/default_airport.png"}" alt="${type}" style="width: 50px; height: 50px; margin-right: 10px;" /><h3 style="margin: 0;">${name}</h3></span>
+            <p>
+              <b>Location:</b> ${municipality}
+            </p>
+            <hr>
+            <div class="grid">
+              <div>
+                  <span class="material-icons" style="vertical-align: middle;">public</span>
+                  ${home_link !== "#" ? `
+                    <a href="${home_link}" target="_blank" rel="noopener">Official Website</a>` : `No official website available`}
+              </div>
+              <div style="text-align: right;">
+                <a href="#">Find out more <span class="material-icons" style="vertical-align: middle;">arrow_circle_right</span></a>
+              </div>
+            </div>
+          </div>
+        `);
+
+        // Set position and open the info window
+        infoWindow.setPosition(event.feature.getGeometry().get());
+        infoWindow.open(map, shouldFocus = true);
+      });
     },
   );
 }
@@ -186,14 +219,17 @@ function showAirportMarkers(map, countryName) {
 /**
  * Creates a custom control to reset the map to its initial state.
  * @param {google.maps.Map} map The Google Map instance to create the control for.
+ * @param {google.maps.InfoWindow} infoWindow The InfoWindow instance to display airport details.
  * @returns {HTMLElement} The custom control element.
  */
-function createResetMapControl(map) {
+function createResetMapControl(map, infoWindow) {
   const resetButton = document.createElement("button");
   resetButton.textContent = "Reset Map";
   resetButton.classList.add("reset-map-control");
 
   resetButton.addEventListener("click", () => {
+    infoWindow.close();
+    google.maps.event.clearListeners(map.data, "click");
     removeAllMapData(map);
     showCountryPolygons(map);
 
@@ -243,6 +279,13 @@ async function initMap() {
 
   const map = new Map(document.getElementById("map"), mapOptions);
 
+  // Create a single InfoWindow instance to be reused
+  const infoWindow = new google.maps.InfoWindow({
+    className: "centred-content",
+    pixelOffset: new google.maps.Size(0, -15),
+    minWidth: 500,
+  });
+
   // See if the search results are set in session storage
   const searchLongitude = sessionStorage.getItem("searchLongitude");
   const searchLatitude = sessionStorage.getItem("searchLatitude");
@@ -283,14 +326,14 @@ async function initMap() {
       .toLowerCase()
       .replace(" ", "_");
 
-    showAirportMarkers(map, country);
+    showAirportMarkers(map, infoWindow, country);
   } else {
     // Load polygons initially
-    showCountryPolygons(map);
+    showCountryPolygons(map, infoWindow);
   }
 
   const resetMapControlDiv = document.createElement("div");
-  const resetMapControl = createResetMapControl(map);
+  const resetMapControl = createResetMapControl(map, infoWindow);
 
   resetMapControlDiv.appendChild(resetMapControl);
   map.controls[google.maps.ControlPosition.TOP_RIGHT].push(resetMapControlDiv);
