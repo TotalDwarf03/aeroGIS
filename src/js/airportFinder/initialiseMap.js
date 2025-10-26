@@ -174,7 +174,7 @@ function showAirportMarkers(map, infoWindow, countryName) {
           title: name,
         };
       });
-      
+
       map.data.addListener("click", (event) => {
         const feature = event.feature;
 
@@ -198,8 +198,12 @@ function showAirportMarkers(map, infoWindow, countryName) {
             <div class="grid">
               <div>
                   <span class="material-icons" style="vertical-align: middle;">public</span>
-                  ${home_link !== "#" ? `
-                    <a href="${home_link}" target="_blank" rel="noopener">Official Website</a>` : `No official website available`}
+                  ${
+                    home_link !== "#"
+                      ? `
+                    <a href="${home_link}" target="_blank" rel="noopener">Official Website</a>`
+                      : `No official website available`
+                  }
               </div>
               <div style="text-align: right;">
                 <a href="#">Find out more <span class="material-icons" style="vertical-align: middle;">arrow_circle_right</span></a>
@@ -210,7 +214,7 @@ function showAirportMarkers(map, infoWindow, countryName) {
 
         // Set position and open the info window
         infoWindow.setPosition(event.feature.getGeometry().get());
-        infoWindow.open(map, shouldFocus = true);
+        infoWindow.open(map, (shouldFocus = true));
       });
     },
   );
