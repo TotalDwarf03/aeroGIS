@@ -112,7 +112,8 @@ For more information on the Google Maps JavaScript API, please refer to the offi
 ### Primary Libraries & APIs
 
 - Google Maps JavaScript API: [Google Maps API](https://developers.google.com/maps/documentation/javascript/overview)
-- GetTheData API: [GetTheData - BNG to Lat/Long](https://www.getthedata.com/bng2latlong)
+- GetTheData BNG to Lat/Long API: [GetTheData - BNG to Lat/Long](https://www.getthedata.com/bng2latlong)
+- GetTheData Postcode API: [GetTheData - Postcodes](https://www.getthedata.com/open-postcode-geo-api)
 
 ### Additional Imports
 

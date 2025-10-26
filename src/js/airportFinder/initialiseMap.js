@@ -96,6 +96,8 @@ async function showCountryPolygons(map) {
     west: logoBoundsData.sw.lng,
   };
 
+  let imageGroundOverlay = null;
+
   map.data.addListener("mouseover", (event) => {
     map.data.overrideStyle(event.feature, {
       strokeWeight: 3,
@@ -104,7 +106,7 @@ async function showCountryPolygons(map) {
     var countryName = event.feature.getProperty("CTRY21NM");
     countryName = countryName.replace(" ", "_").toLowerCase();
 
-    const imageGroundOverlay = drawImageOnMap(
+    imageGroundOverlay = drawImageOnMap(
       map,
       `./mapIcons/${countryName}.png`,
       imageBounds,
@@ -121,6 +123,12 @@ async function showCountryPolygons(map) {
     const lat = event.feature.getProperty("LAT");
     const lng = event.feature.getProperty("LONG");
 
+    // Remove existing mouseover listeners to prevent multiple triggers
+    google.maps.event.clearListeners(map.data, "mouseover");
+    google.maps.event.clearListeners(map.data, "mouseout");
+    google.maps.event.clearListeners(map.data, "click");
+
+    removeImageFromMap(imageGroundOverlay);
     removeAllMapData(map);
     showAirportMarkers(map, countryName);
 
@@ -145,8 +153,7 @@ function showAirportMarkers(map, countryName) {
     null,
     () => {
       map.data.setStyle({
-        strokeColor: "black",
-        strokeWeight: 1,
+        strokeColor: "lightgray",
       });
     },
   );
@@ -174,6 +181,34 @@ function showAirportMarkers(map, countryName) {
       // TODO: Add a click listener to show info window with airport details
     },
   );
+}
+
+/**
+ * Creates a custom control to reset the map to its initial state.
+ * @param {google.maps.Map} map The Google Map instance to create the control for.
+ * @returns {HTMLElement} The custom control element.
+ */
+function createResetMapControl(map) {
+  const resetButton = document.createElement("button");
+  resetButton.textContent = "Reset Map";
+  resetButton.classList.add("reset-map-control");
+
+  resetButton.addEventListener("click", () => {
+    removeAllMapData(map);
+    showCountryPolygons(map);
+
+    // Reset map view
+    fetch("../../datasets/aeroGIS/aeroGIS-centroid.json")
+      .then((response) => response.json())
+      .then((data) => {
+        map.setCenter({ lat: data.lat, lng: data.lng });
+        map.setZoom(5);
+        map.scrollwheel = false;
+        map.maxZoom = null;
+      });
+  });
+
+  return resetButton;
 }
 
 /**
@@ -233,13 +268,32 @@ async function initMap() {
     map.setZoom(10);
     map.scrollwheel = true;
     map.maxZoom = 15;
+
+    const postcodeMarker = new google.maps.Marker({
+      position: { lat: lat, lng: lng },
+      map: map,
+      title: `Search Location: ${searchPostcode}`,
+    });
+
+    const postcodeInfo = await fetch(
+      `http://api.getthedata.com/postcode/${searchPostcode.replace(" ", "+")}`,
+    );
+    const postcodeInfoData = await postcodeInfo.json();
+    const country = postcodeInfoData.data.country
+      .toLowerCase()
+      .replace(" ", "_");
+
+    showAirportMarkers(map, country);
   } else {
     // Load polygons initially
     showCountryPolygons(map);
   }
 
-  // TODO: Add a custom map control to reset the map to the initial state
-  // See: https://developers.google.com/maps/documentation/javascript/controls#CustomExample
+  const resetMapControlDiv = document.createElement("div");
+  const resetMapControl = createResetMapControl(map);
+
+  resetMapControlDiv.appendChild(resetMapControl);
+  map.controls[google.maps.ControlPosition.TOP_RIGHT].push(resetMapControlDiv);
 
   return map;
 }

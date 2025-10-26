@@ -34,14 +34,8 @@ This will bridge the gap between the different coordinate systems (British Natio
 
 Simply send a GET request to the API with the easting and northing values as parameters to receive the corresponding latitude and longitude.
 
-```js
-fetch(
-  "https://www.getthedata.com/bng2latlong?easting=EASTING_VALUE&northing=NORTHING_VALUE",
-)
-  .then((response) => response.json())
-  .then((data) => {
-    console.log("Latitude:", data.latitude);
-    console.log("Longitude:", data.longitude);
-  })
-  .catch((error) => console.error("Error:", error));
-```
+In addition to this, getTheData.com also provides an API to retrieve information about a postcode directly:
+
+- [https://www.getthedata.com/open-postcode-geo-api](https://www.getthedata.com/open-postcode-geo-api)
+
+In this project, this is used to figure out which country the given postcode is in (e.g., England, Scotland, Wales, Northern Ireland) so that the airport information can be filtered accordingly.

@@ -1,0 +1,30 @@
+.reset-map-control {
+  /* Taken from existing google map ui style */
+  background: rgb(255, 255, 255) padding-box;
+  display: table-cell;
+  border: 0px;
+  margin: 0px;
+  padding: 0px 17px;
+  text-transform: none;
+  appearance: none;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  overflow: hidden;
+  text-align: center;
+  height: 40px;
+  vertical-align: middle;
+  color: rgb(0, 0, 0);
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 18px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+  min-width: 38px;
+  font-weight: 500;
+
+  /* Added margin for spacing */
+  margin: 8px;
+}
+
+.reset-map-control:hover {
+  background: rgb(235, 235, 235) padding-box;
+}
