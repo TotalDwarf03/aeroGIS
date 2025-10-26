@@ -3,7 +3,8 @@ async function loadAirportDetails() {
   const airportId = Number(sessionStorage.getItem("selectedAirportId"));
   if (!airportId) {
     console.error("No airport ID found in session storage.");
-    alert("Error: No airport selected.");
+    alert("Error: No airport selected. Returning to Airport Finder.");
+    window.location.href = "./airportFinder.html";
     return null;
   }
 
@@ -18,7 +19,8 @@ async function loadAirportDetails() {
   );
   if (!airportFeature) {
     console.error("Airport not found in dataset.");
-    alert("Error: Airport not found.");
+    alert("Error: Airport not found. Returning to Airport Finder.");
+    window.location.href = "./airportFinder.html";
     return null;
   }
 
@@ -58,7 +60,7 @@ async function renderAirportDetails() {
         <p><strong>IATA Code:</strong> ${airportIata || "N/A"}</p>
         <p><strong>Coordinates:</strong> ${airportLat}, ${airportLon}</p>
         <p><strong>Elevation:</strong> ${airportElevation !== null ? airportElevation + " ft" : "N/A"}</p>
-        <p>${airportWebsite ? `<a href="${airportWebsite}" target="_blank">${airportName} Website<span class="material-icons inline-icon">open_in_new</span></a>` : "N/A"}</p>
+        <p>${airportWebsite ? `<a href="${airportWebsite}" target="_blank">${airportName} Website<span class="material-icons inline-icon">open_in_new</span></a>` : "No Website Available"}</p>
     `;
 
   // Fetch and display Wikipedia information
