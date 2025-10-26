@@ -14,6 +14,8 @@ airportTypeIconMap = {
   closed: "./mapIcons/closed_airport.png",
 };
 
+var markers = [];
+
 /**
  * Draws an image on the map within specified bounds.
  *
@@ -241,6 +243,15 @@ function createResetMapControl(map, infoWindow) {
   resetButton.addEventListener("click", () => {
     infoWindow.close();
     google.maps.event.clearListeners(map.data, "click");
+
+    // Remove all existing markers
+    markers.forEach((marker) => marker.setMap(null));
+    markers = [];
+
+    // Clear search results info panel
+    const infoPanel = document.getElementById("info-panel");
+    infoPanel.innerHTML = "";
+
     removeAllMapData(map);
     showCountryPolygons(map, infoWindow);
 
@@ -328,6 +339,8 @@ async function initMap() {
       map: map,
       title: `Search Location: ${searchPostcode}`,
     });
+
+    markers.push(postcodeMarker);
 
     const postcodeInfo = await fetch(
       `http://api.getthedata.com/postcode/${searchPostcode.replace(" ", "+")}`,
