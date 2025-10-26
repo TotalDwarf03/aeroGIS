@@ -53,8 +53,8 @@ async function searchByPostcode() {
     {
       method: "GET",
       headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
+        "Content-Type": "text/csv",
+        Accept: "text/csv",
       },
     },
   );
