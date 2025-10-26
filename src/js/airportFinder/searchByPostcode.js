@@ -52,10 +52,6 @@ async function searchByPostcode() {
     `../datasets/codePointOpen/CSV/${postcodeArea}.csv`,
     {
       method: "GET",
-      headers: {
-        "Content-Type": "text/csv",
-        Accept: "text/csv",
-      },
     },
   );
 
