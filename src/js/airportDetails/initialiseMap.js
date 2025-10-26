@@ -54,7 +54,7 @@ async function initMap() {
   var totalRunways = [];
 
   map.data.loadGeoJson(
-    "../../datasets/ourAirports/ourAirports-runway-polys.geojson",
+    "../datasets/ourAirports/ourAirports-runway-polys.geojson",
     null,
     function (features) {
       // Style the runway polygons

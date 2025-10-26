@@ -43,7 +43,7 @@ async function searchByPostcode() {
   const postcodeArea = postcode.slice(0, 2).toLowerCase();
 
   const postcodeData = await fetch(
-    `../../datasets/codePointOpen/CSV/${postcodeArea}.csv`,
+    `../datasets/codePointOpen/CSV/${postcodeArea}.csv`,
   );
 
   if (!postcodeData.ok) {

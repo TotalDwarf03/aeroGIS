@@ -40,7 +40,7 @@ async function initMap() {
   // Initialize Easter Egg Checklist
   var checklist = new EasterEggChecklist();
 
-  const centre = await fetch("../../datasets/aeroGIS/aeroGIS-centroid.json")
+  const centre = await fetch("../datasets/aeroGIS/aeroGIS-centroid.json")
     .then((response) => response.json())
     .then((data) => {
       return { lat: data.lat, lng: data.lng };
@@ -68,7 +68,7 @@ async function initMap() {
   // This is used to initiate an Easter Egg tracker
 
   logoBoundsData = await fetch(
-    "../../datasets/aeroGIS/aeroGIS-logo-bounds.json",
+    "../datasets/aeroGIS/aeroGIS-logo-bounds.json",
   ).then((response) => response.json());
 
   const imageBounds = {
@@ -80,7 +80,7 @@ async function initMap() {
 
   const logoGroundOverlay = drawImageOnMap(
     map,
-    (imgPath = "../../assets/aerogis-logo-bare.png"),
+    (imgPath = "../assets/aerogis-logo-bare.png"),
     imageBounds,
   );
 
@@ -93,7 +93,7 @@ async function initMap() {
 
   // Load AeroGIS GeoJSON data and style it
 
-  map.data.loadGeoJson("../../datasets/aeroGIS/aeroGIS.geojson");
+  map.data.loadGeoJson("../datasets/aeroGIS/aeroGIS.geojson");
 
   map.data.setStyle(function (feature) {
     var id = feature.getProperty("id");
