@@ -12,7 +12,13 @@ async function osgb36ToWgs84(easting, northing) {
   const url = `https://api.getthedata.com/bng2latlong/${easting}/${northing}`;
 
   try {
-    const response = await fetch(url);
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    });
     if (!response.ok) {
       throw new Error("Failed to convert coordinates.");
     }
@@ -44,6 +50,13 @@ async function searchByPostcode() {
 
   const postcodeData = await fetch(
     `../datasets/codePointOpen/CSV/${postcodeArea}.csv`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    },
   );
 
   if (!postcodeData.ok) {

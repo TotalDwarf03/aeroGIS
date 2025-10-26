@@ -40,7 +40,13 @@ async function initMap() {
   // Initialize Easter Egg Checklist
   var checklist = new EasterEggChecklist();
 
-  const centre = await fetch("../datasets/aeroGIS/aeroGIS-centroid.json")
+  const centre = await fetch("../datasets/aeroGIS/aeroGIS-centroid.json", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  })
     .then((response) => response.json())
     .then((data) => {
       return { lat: data.lat, lng: data.lng };
@@ -67,9 +73,13 @@ async function initMap() {
   // Add AeroGIS logo as a clickable overlay
   // This is used to initiate an Easter Egg tracker
 
-  logoBoundsData = await fetch(
-    "../datasets/aeroGIS/aeroGIS-logo-bounds.json",
-  ).then((response) => response.json());
+  logoBoundsData = await fetch("../datasets/aeroGIS/aeroGIS-logo-bounds.json", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  }).then((response) => response.json());
 
   const imageBounds = {
     north: logoBoundsData.ne.lat,

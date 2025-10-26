@@ -11,6 +11,13 @@ async function loadAirportDetails() {
   // Fetch airport data from the dataset
   const airportData = await fetch(
     "../datasets/ourAirports/ourAirports-airports.geojson",
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    },
   );
   const airportJson = await airportData.json();
 

@@ -89,9 +89,13 @@ async function showCountryPolygons(map, infoWindow) {
   ]);
 
   // Reuse logo bounds to show country flag on hover
-  logoBoundsData = await fetch(
-    "../datasets/aeroGIS/aeroGIS-logo-bounds.json",
-  ).then((response) => response.json());
+  logoBoundsData = await fetch("../datasets/aeroGIS/aeroGIS-logo-bounds.json", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  }).then((response) => response.json());
 
   const imageBounds = {
     north: logoBoundsData.ne.lat,
@@ -256,7 +260,13 @@ function createResetMapControl(map, infoWindow) {
     showCountryPolygons(map, infoWindow);
 
     // Reset map view
-    fetch("../datasets/aeroGIS/aeroGIS-centroid.json")
+    fetch("../datasets/aeroGIS/aeroGIS-centroid.json", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
       .then((response) => response.json())
       .then((data) => {
         map.setCenter({ lat: data.lat, lng: data.lng });
@@ -278,7 +288,13 @@ async function initMap() {
   const { ColorScheme } = await google.maps.importLibrary("core");
   const { Map, MapTypeId } = await google.maps.importLibrary("maps");
 
-  const centre = await fetch("../datasets/aeroGIS/aeroGIS-centroid.json")
+  const centre = await fetch("../datasets/aeroGIS/aeroGIS-centroid.json", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  })
     .then((response) => response.json())
     .then((data) => {
       return { lat: data.lat, lng: data.lng };
@@ -344,6 +360,13 @@ async function initMap() {
 
     const postcodeInfo = await fetch(
       `http://api.getthedata.com/postcode/${searchPostcode.replace(" ", "+")}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      },
     );
     const postcodeInfoData = await postcodeInfo.json();
     const country = postcodeInfoData.data.country
