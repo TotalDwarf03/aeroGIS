@@ -12,13 +12,7 @@ async function osgb36ToWgs84(easting, northing) {
   const url = `https://api.getthedata.com/bng2latlong/${easting}/${northing}`;
 
   try {
-    const response = await fetch(url, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    });
+    const response = await fetch(url);
     if (!response.ok) {
       throw new Error("Failed to convert coordinates.");
     }

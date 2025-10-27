@@ -360,13 +360,6 @@ async function initMap() {
 
     const postcodeInfo = await fetch(
       `http://api.getthedata.com/postcode/${searchPostcode.replace(" ", "+")}`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-      },
     );
     const postcodeInfoData = await postcodeInfo.json();
     const country = postcodeInfoData.data.country
