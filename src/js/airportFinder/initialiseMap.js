@@ -359,7 +359,7 @@ async function initMap() {
     markers.push(postcodeMarker);
 
     const postcodeInfo = await fetch(
-      `http://api.getthedata.com/postcode/${searchPostcode.replace(" ", "+")}`,
+      `https://api.getthedata.com/postcode/${searchPostcode.replace(" ", "+")}`,
     );
     const postcodeInfoData = await postcodeInfo.json();
     const country = postcodeInfoData.data.country
