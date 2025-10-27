@@ -194,6 +194,12 @@
         <input type="submit" value="Search" onclick="searchByPostcode()" />
       </form>
 
+      <p>
+        <b>Note:</b> This unfortunately does not work on the student webserver.
+        This is because the API request gets blocked by CORS. The student
+        webserver doesn't let you make requests to external APIs :(
+      </p>
+
       <div id="map-container-grid">
         <div id="info-panel" class="info-panel"></div>
 

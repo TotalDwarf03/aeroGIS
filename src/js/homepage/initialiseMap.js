@@ -103,7 +103,7 @@ async function initMap() {
 
   // Load AeroGIS GeoJSON data and style it
 
-  map.data.loadGeoJson("../datasets/aeroGIS/aeroGIS.geojson");
+  map.data.loadGeoJson("../datasets/aeroGIS/aeroGIS.json");
 
   map.data.setStyle(function (feature) {
     var id = feature.getProperty("id");

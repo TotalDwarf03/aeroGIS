@@ -43,6 +43,13 @@ git update-index --no-assume-unchanged src/setApiKey.js
 
 After adding your API key, you can open `index.html` in a web browser to view the project.
 
+## Student Webserver Compatibility Tweaks (USW)
+
+Unfortunately, a number of changes have been made to the project in order to get it working on the USW student webserver. These changes are noted below:
+
+- **CORS Restrictions:** The student webserver has CORS restrictions that prevent API requests to external services. As a result, some features that rely on external APIs may not function correctly when hosted on the student webserver (primarily the postcode searching feature).
+- **File Types:** The student webserver has restrictions on certain file types, geojson files in particular. To work around this, all geojson files have been converted to standard `.json` files.
+
 ## Linting and Formatting
 
 This project uses GitHub Actions to run Prettier and Markdownlint on push and pull requests to the `main` branch. These action can be found in the `.github/workflows` directory.

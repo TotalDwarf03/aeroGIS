@@ -60,7 +60,7 @@ function removeAllMapData(map) {
  */
 async function showCountryPolygons(map, infoWindow) {
   map.data.loadGeoJson(
-    "../datasets/ukBoundaries/ukBoundaries-countries.geojson",
+    "../datasets/ukBoundaries/ukBoundaries-countries.json",
     null,
     () => {
       map.data.setStyle((feature) => {
@@ -158,11 +158,11 @@ function showAirportMarkers(map, infoWindow, countryName) {
   countryName = countryName.replace(" ", "_").toLowerCase();
 
   map.data.loadGeoJson(
-    `../datasets/ukBoundaries/ukBoundaries-borders-${countryName}.geojson`,
+    `../datasets/ukBoundaries/ukBoundaries-borders-${countryName}.json`,
   );
 
   map.data.loadGeoJson(
-    `../datasets/ourAirports/${countryName}/ourAirports-airports.geojson`,
+    `../datasets/ourAirports/${countryName}/ourAirports-airports.json`,
     null,
     () => {
       map.data.setStyle((feature) => {

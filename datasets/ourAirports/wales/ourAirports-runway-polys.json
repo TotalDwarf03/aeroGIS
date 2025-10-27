@@ -1,0 +1,784 @@
+{
+  "type": "FeatureCollection",
+  "name": "ourAirports-runway-polys",
+  "crs": {
+    "type": "name",
+    "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 239380,
+        "airport_ref": 2402,
+        "airport_ident": "EGCW",
+        "length_ft": 3346,
+        "width_ft": 59,
+        "surface": "ASP",
+        "lighted": false,
+        "closed": false,
+        "le_ident": "04",
+        "le_latitude_deg": 52.624801635742188,
+        "le_longitude_deg": -3.1577599048614502,
+        "le_elevation_ft": 233,
+        "le_heading_degT": 36.0,
+        "le_displaced_threshold_ft": 318,
+        "he_ident": "22",
+        "he_latitude_deg": 52.632198333740234,
+        "he_longitude_deg": -3.1489999294281006,
+        "he_elevation_ft": 233,
+        "he_heading_degT": 216.0,
+        "he_displaced_threshold_ft": 364,
+        "width_m": 18,
+        "buffer_m": 9
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [-3.157652033123869, 52.624754337280706],
+              [-3.157729751566412, 52.624688699968573],
+              [-3.157945472380013, 52.624783289343092],
+              [-3.149107787643109, 52.632245632667257],
+              [-3.149030042994012, 52.632311264389202],
+              [-3.148814303884187, 52.632216658999347],
+              [-3.157652033123869, 52.624754337280706]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 239408,
+        "airport_ref": 2409,
+        "airport_ident": "EGDX",
+        "length_ft": 5997,
+        "width_ft": 141,
+        "surface": "ASP",
+        "lighted": true,
+        "closed": false,
+        "le_ident": "07",
+        "le_latitude_deg": 51.402801513671875,
+        "le_longitude_deg": -3.4460101127624512,
+        "le_elevation_ft": 160,
+        "le_heading_degT": 73.0,
+        "le_displaced_threshold_ft": null,
+        "he_ident": "25",
+        "he_latitude_deg": 51.407600402832031,
+        "he_longitude_deg": -3.4209198951721191,
+        "he_elevation_ft": 133,
+        "he_heading_degT": 253.0,
+        "he_displaced_threshold_ft": null,
+        "width_m": 43,
+        "buffer_m": 22
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [-3.445917574966327, 51.402612374430788],
+              [-3.446219957564387, 51.402554500370599],
+              [-3.446405014928013, 51.402932768864275],
+              [-3.421012319421802, 51.407789552963855],
+              [-3.420709869311475, 51.407847362437018],
+              [-3.420525002547403, 51.407469052193768],
+              [-3.445917574966327, 51.402612374430788]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 239415,
+        "airport_ref": 2454,
+        "airport_ident": "EGOV",
+        "length_ft": 5377,
+        "width_ft": 151,
+        "surface": "ASP",
+        "lighted": true,
+        "closed": false,
+        "le_ident": "01",
+        "le_latitude_deg": 53.243598937988281,
+        "le_longitude_deg": -4.5405597686767578,
+        "le_elevation_ft": 18,
+        "le_heading_degT": 6.3,
+        "le_displaced_threshold_ft": null,
+        "he_ident": "19",
+        "he_latitude_deg": 53.258098602294922,
+        "he_longitude_deg": -4.5378899574279785,
+        "he_elevation_ft": 35,
+        "he_heading_degT": 186.3,
+        "he_displaced_threshold_ft": 221,
+        "width_m": 46,
+        "buffer_m": 23
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [-4.540217309248344, 53.243576252484587],
+              [-4.540255122937157, 53.243370831688139],
+              [-4.540940017668995, 53.243416195467134],
+              [-4.538232510955067, 53.258121287024927],
+              [-4.538194676868948, 53.258326706987717],
+              [-4.537509545672469, 53.25828133032595],
+              [-4.540217309248344, 53.243576252484587]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 239416,
+        "airport_ref": 2454,
+        "airport_ident": "EGOV",
+        "length_ft": 2200,
+        "width_ft": 151,
+        "surface": "ASP",
+        "lighted": false,
+        "closed": true,
+        "le_ident": "08",
+        "le_latitude_deg": 53.245800018310547,
+        "le_longitude_deg": -4.5458297729492188,
+        "le_elevation_ft": 19,
+        "le_heading_degT": 70.0,
+        "le_displaced_threshold_ft": 703,
+        "he_ident": "26",
+        "he_latitude_deg": 53.249698638916016,
+        "he_longitude_deg": -4.5278201103210449,
+        "he_elevation_ft": 36,
+        "he_heading_degT": 250.0,
+        "he_displaced_threshold_ft": 401,
+        "width_m": 46,
+        "buffer_m": 23
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [-4.545712756361459, 53.245605628225988],
+              [-4.546036826145376, 53.245535444406585],
+              [-4.546270841729251, 53.245924217721821],
+              [-4.527937036912871, 53.249893041223324],
+              [-4.52761290316053, 53.249963176501566],
+              [-4.527379032355466, 53.249574365039678],
+              [-4.545712756361459, 53.245605628225988]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 239417,
+        "airport_ref": 2454,
+        "airport_ident": "EGOV",
+        "length_ft": 7513,
+        "width_ft": 151,
+        "surface": "ASP",
+        "lighted": true,
+        "closed": false,
+        "le_ident": "13",
+        "le_latitude_deg": 53.253799438476562,
+        "le_longitude_deg": -4.5461997985839844,
+        "le_elevation_ft": 30,
+        "le_heading_degT": 131.0,
+        "le_displaced_threshold_ft": null,
+        "he_ident": "31",
+        "he_latitude_deg": 53.240501403808594,
+        "he_longitude_deg": -4.5202498435974121,
+        "he_elevation_ft": 22,
+        "he_heading_degT": 311.0,
+        "he_displaced_threshold_ft": null,
+        "width_m": 46,
+        "buffer_m": 23
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [-4.54642358773567, 53.253642279661904],
+              [-4.546685638877622, 53.253776495354174],
+              [-4.546238038325752, 53.254090807508376],
+              [-4.520026002688311, 53.240658508035828],
+              [-4.519764114641927, 53.240524231512197],
+              [-4.520211774178224, 53.240210017554418],
+              [-4.54642358773567, 53.253642279661904]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 239422,
+        "airport_ref": 2446,
+        "airport_ident": "EGNR",
+        "length_ft": 6867,
+        "width_ft": 148,
+        "surface": "ASP",
+        "lighted": true,
+        "closed": false,
+        "le_ident": "04",
+        "le_latitude_deg": 53.1712,
+        "le_longitude_deg": -2.98764,
+        "le_elevation_ft": 31,
+        "le_heading_degT": 41.0,
+        "le_displaced_threshold_ft": 984,
+        "he_ident": "22",
+        "he_latitude_deg": 53.185001,
+        "he_longitude_deg": -2.96763,
+        "he_elevation_ft": 17,
+        "he_heading_degT": 221.0,
+        "he_displaced_threshold_ft": 984,
+        "width_m": 45,
+        "buffer_m": 23
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [-2.987380526708124, 53.171064230481335],
+              [-2.987606472434799, 53.170908325628716],
+              [-2.988125396734211, 53.171179856782331],
+              [-2.967889472674123, 53.185136805802408],
+              [-2.967663380848383, 53.185292673550329],
+              [-2.967144413179798, 53.18502105408492],
+              [-2.987380526708124, 53.171064230481335]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 239423,
+        "airport_ref": 2451,
+        "airport_ident": "EGFD",
+        "length_ft": 4328,
+        "width_ft": 151,
+        "surface": "ASP",
+        "lighted": false,
+        "closed": false,
+        "le_ident": "05",
+        "le_latitude_deg": 52.805801391601562,
+        "le_longitude_deg": -4.1339101791381836,
+        "le_elevation_ft": null,
+        "le_heading_degT": 47.0,
+        "le_displaced_threshold_ft": null,
+        "he_ident": "23",
+        "he_latitude_deg": 52.8135986328125,
+        "he_longitude_deg": -4.1192498207092285,
+        "he_elevation_ft": null,
+        "he_heading_degT": 227.0,
+        "he_displaced_threshold_ft": null,
+        "width_m": 46,
+        "buffer_m": 23
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [-4.133685136784168, 52.805646050059181],
+              [-4.133941465806527, 52.805509678984222],
+              [-4.134391531000862, 52.80582035373525],
+              [-4.119474832732126, 52.813753994738875],
+              [-4.119218409748151, 52.81389033534203],
+              [-4.118768366163062, 52.813579603168925],
+              [-4.133685136784168, 52.805646050059181]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 239424,
+        "airport_ref": 2451,
+        "airport_ident": "EGFD",
+        "length_ft": 4207,
+        "width_ft": 151,
+        "surface": "ASP",
+        "lighted": false,
+        "closed": false,
+        "le_ident": "15",
+        "le_latitude_deg": 52.815399169921875,
+        "le_longitude_deg": -4.1354999542236328,
+        "le_elevation_ft": null,
+        "le_heading_degT": 150.1,
+        "le_displaced_threshold_ft": null,
+        "he_ident": "33",
+        "he_latitude_deg": 52.805301666259766,
+        "he_longitude_deg": -4.1262202262878418,
+        "he_elevation_ft": null,
+        "he_heading_degT": 330.1,
+        "he_displaced_threshold_ft": null,
+        "width_m": 46,
+        "buffer_m": 23
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [-4.135798000137016, 52.815298588159798],
+              [-4.135964006689498, 52.81547917247967],
+              [-4.135367890322046, 52.81568032921534],
+              [-4.125922203838474, 52.805402216731963],
+              [-4.125756278095588, 52.805221617247952],
+              [-4.126352298448965, 52.805020509495357],
+              [-4.135798000137016, 52.815298588159798]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 239425,
+        "airport_ref": 2451,
+        "airport_ident": "EGFD",
+        "length_ft": 7500,
+        "width_ft": 151,
+        "surface": "ASP",
+        "lighted": true,
+        "closed": false,
+        "le_ident": "17",
+        "le_latitude_deg": 52.815299987792969,
+        "le_longitude_deg": -4.1302800178527832,
+        "le_elevation_ft": 20,
+        "le_heading_degT": 169.7,
+        "le_displaced_threshold_ft": 311,
+        "he_ident": "35",
+        "he_latitude_deg": 52.794998168945312,
+        "he_longitude_deg": -4.1242599487304688,
+        "he_elevation_ft": 29,
+        "he_heading_degT": 349.7,
+        "he_displaced_threshold_ft": null,
+        "width_m": 46,
+        "buffer_m": 23
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [-4.130615793393088, 52.815263415032867],
+              [-4.130676152336243, 52.815466859278636],
+              [-4.130004576150001, 52.815539997325828],
+              [-4.123924301532627, 52.795034715358462],
+              [-4.123864005001208, 52.794831266403776],
+              [-4.124535274302856, 52.794758166066735],
+              [-4.130615793393088, 52.815263415032867]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 239429,
+        "airport_ref": 2400,
+        "airport_ident": "EGCK",
+        "length_ft": 3534,
+        "width_ft": 75,
+        "surface": "ASP",
+        "lighted": false,
+        "closed": false,
+        "le_ident": "02",
+        "le_latitude_deg": 53.099498748779297,
+        "le_longitude_deg": -4.3423800468444824,
+        "le_elevation_ft": 12,
+        "le_heading_degT": 13.2,
+        "le_displaced_threshold_ft": 253,
+        "he_ident": "20",
+        "he_latitude_deg": 53.108798980712891,
+        "he_longitude_deg": -4.3387298583984375,
+        "he_elevation_ft": 13,
+        "he_heading_degT": 193.2,
+        "he_displaced_threshold_ft": null,
+        "width_m": 23,
+        "buffer_m": 12
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [-4.342205670604652, 53.099473958805],
+              [-4.342246852576876, 53.099369010608655],
+              [-4.342595583041725, 53.099418583836254],
+              [-4.338904249291209, 53.108823769005852],
+              [-4.338863050810438, 53.108928716081699],
+              [-4.338514246997105, 53.108879132791884],
+              [-4.342205670604652, 53.099473958805]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 239430,
+        "airport_ref": 2400,
+        "airport_ident": "EGCK",
+        "length_ft": 2887,
+        "width_ft": 75,
+        "surface": "ASP",
+        "lighted": true,
+        "closed": false,
+        "le_ident": "07",
+        "le_latitude_deg": 53.100601196289062,
+        "le_longitude_deg": -4.343329906463623,
+        "le_elevation_ft": 12,
+        "le_heading_degT": 71.0,
+        "le_displaced_threshold_ft": 184,
+        "he_ident": "25",
+        "he_latitude_deg": 53.103298187255859,
+        "he_longitude_deg": -4.3300600051879883,
+        "he_elevation_ft": 11,
+        "he_heading_degT": 251.0,
+        "he_displaced_threshold_ft": 292,
+        "width_m": 23,
+        "buffer_m": 12
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [-4.343272556938169, 53.10049902891879],
+              [-4.343442300886029, 53.100464518249368],
+              [-4.343556979520166, 53.10066884643723],
+              [-4.330117306101237, 53.103400354905993],
+              [-4.329947539411085, 53.103434846793185],
+              [-4.329832917145568, 53.103230504944385],
+              [-4.343272556938169, 53.10049902891879]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 239454,
+        "airport_ref": 2413,
+        "airport_ident": "EGFA",
+        "length_ft": 3031,
+        "width_ft": 75,
+        "surface": "ASP",
+        "lighted": true,
+        "closed": false,
+        "le_ident": "08",
+        "le_latitude_deg": 52.113998413085938,
+        "le_longitude_deg": -4.5633602142333984,
+        "le_elevation_ft": 420,
+        "le_heading_degT": 72.0,
+        "le_displaced_threshold_ft": 125,
+        "he_ident": "26",
+        "he_latitude_deg": 52.116600036621094,
+        "he_longitude_deg": -4.550529956817627,
+        "he_elevation_ft": 413,
+        "he_heading_degT": 252.0,
+        "he_displaced_threshold_ft": 135,
+        "width_m": 23,
+        "buffer_m": 12
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [-4.563305388878383, 52.113895979714293],
+              [-4.563471763401319, 52.113862232445683],
+              [-4.563581394748418, 52.114067090840891],
+              [-4.550584736307574, 52.116702468080597],
+              [-4.550418340910349, 52.116736197404201],
+              [-4.550308762546496, 52.116531326141406],
+              [-4.563305388878383, 52.113895979714293]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 239455,
+        "airport_ref": 2416,
+        "airport_ident": "EGFH",
+        "length_ft": 4429,
+        "width_ft": 151,
+        "surface": "CON",
+        "lighted": true,
+        "closed": false,
+        "le_ident": "04",
+        "le_latitude_deg": 51.599899291992188,
+        "le_longitude_deg": -4.0742101669311523,
+        "le_elevation_ft": 261,
+        "le_heading_degT": 36.0,
+        "le_displaced_threshold_ft": 200,
+        "he_ident": "22",
+        "he_latitude_deg": 51.610099792480469,
+        "he_longitude_deg": -4.0621500015258789,
+        "he_elevation_ft": 295,
+        "he_heading_degT": 216.0,
+        "he_displaced_threshold_ft": 295,
+        "width_m": 46,
+        "buffer_m": 23
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [-4.07394279630876, 51.599776725361025],
+              [-4.074139598902268, 51.599610222722262],
+              [-4.074674320059462, 51.599855345403661],
+              [-4.062417382020161, 51.610222376395143],
+              [-4.062220491167809, 51.610388860070344],
+              [-4.0616857100677, 51.610143681676938],
+              [-4.07394279630876, 51.599776725361025]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 239456,
+        "airport_ref": 2416,
+        "airport_ident": "EGFH",
+        "length_ft": 2812,
+        "width_ft": 151,
+        "surface": "ASP",
+        "lighted": true,
+        "closed": false,
+        "le_ident": "10",
+        "le_latitude_deg": 51.601200103759766,
+        "le_longitude_deg": -4.0762600898742676,
+        "le_elevation_ft": 256,
+        "le_heading_degT": 97.0,
+        "le_displaced_threshold_ft": 108,
+        "he_ident": "28",
+        "he_latitude_deg": 51.600399017333984,
+        "he_longitude_deg": -4.0639700889587402,
+        "he_elevation_ft": 255,
+        "he_heading_degT": 277.0,
+        "he_displaced_threshold_ft": 98,
+        "width_m": 46,
+        "buffer_m": 23
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [-4.076294611775555, 51.600994473120757],
+              [-4.07662480280136, 51.60101597745706],
+              [-4.076555741105551, 51.601427229811009],
+              [-4.063935491060409, 51.600604635904197],
+              [-4.063605308004561, 51.600583095759283],
+              [-4.063674485890422, 51.600171849693645],
+              [-4.076294611775555, 51.600994473120757]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 239474,
+        "airport_ref": 3073,
+        "airport_ident": "EGOQ",
+        "length_ft": 5180,
+        "width_ft": 150,
+        "surface": "ASP",
+        "lighted": true,
+        "closed": false,
+        "le_ident": "04",
+        "le_latitude_deg": 53.253898620605469,
+        "le_longitude_deg": -4.3809599876403809,
+        "le_elevation_ft": 187,
+        "le_heading_degT": 37.0,
+        "le_displaced_threshold_ft": 286,
+        "he_ident": "22",
+        "he_latitude_deg": 53.265098571777344,
+        "he_longitude_deg": -4.3666200637817383,
+        "he_elevation_ft": 197,
+        "he_heading_degT": 217.0,
+        "he_displaced_threshold_ft": null,
+        "width_m": 46,
+        "buffer_m": 23
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [-4.380686600780565, 53.253772772623307],
+              [-4.380896441780356, 53.253608825153307],
+              [-4.381443194722313, 53.253860513466364],
+              [-4.366893462141696, 53.265224445420955],
+              [-4.366683511274168, 53.265388369159304],
+              [-4.366136693748179, 53.265136614240298],
+              [-4.380686600780565, 53.253772772623307]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 239564,
+        "airport_ref": 2414,
+        "airport_ident": "EGFE",
+        "length_ft": 5000,
+        "width_ft": 148,
+        "surface": "ASP",
+        "lighted": true,
+        "closed": false,
+        "le_ident": "03",
+        "le_latitude_deg": 51.827098846435547,
+        "le_longitude_deg": -4.9666399955749512,
+        "le_elevation_ft": 141,
+        "le_heading_degT": 30.0,
+        "le_displaced_threshold_ft": 745,
+        "he_ident": "21",
+        "he_latitude_deg": 51.839000701904297,
+        "he_longitude_deg": -4.9556798934936523,
+        "he_elevation_ft": 147,
+        "he_heading_degT": 210.0,
+        "he_displaced_threshold_ft": 837,
+        "width_m": 45,
+        "buffer_m": 23
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [-4.966350246285051, 51.826996432305769],
+              [-4.966515522218577, 51.826816901550309],
+              [-4.967095001015956, 51.827021719633194],
+              [-4.955969678377576, 51.839103132696415],
+              [-4.955804316817603, 51.839282649642257],
+              [-4.9552247272425, 51.839077777901537],
+              [-4.966350246285051, 51.826996432305769]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 239565,
+        "airport_ref": 2414,
+        "airport_ident": "EGFE",
+        "length_ft": 3412,
+        "width_ft": 148,
+        "surface": "ASP",
+        "lighted": false,
+        "closed": false,
+        "le_ident": "09",
+        "le_latitude_deg": 51.833900451660156,
+        "le_longitude_deg": -4.9702801704406738,
+        "le_elevation_ft": 148,
+        "le_heading_degT": 88.3,
+        "le_displaced_threshold_ft": 787,
+        "he_ident": "27",
+        "he_latitude_deg": 51.834201812744141,
+        "he_longitude_deg": -4.9552798271179199,
+        "he_elevation_ft": 138,
+        "he_heading_degT": 268.3,
+        "he_displaced_threshold_ft": 689,
+        "width_m": 45,
+        "buffer_m": 23
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [-4.970269313624518, 51.833693871121248],
+              [-4.970602750314497, 51.833687150525272],
+              [-4.970624447674668, 51.834100302842899],
+              [-4.955290596083128, 51.83440838707164],
+              [-4.954957150028175, 51.834415064335644],
+              [-4.954935595802013, 51.834001906921145],
+              [-4.970269313624518, 51.833693871121248]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 239594,
+        "airport_ref": 2415,
+        "airport_ident": "EGFF",
+        "length_ft": 7723,
+        "width_ft": 148,
+        "surface": "ASP",
+        "lighted": true,
+        "closed": false,
+        "le_ident": "12",
+        "le_latitude_deg": 51.401501,
+        "le_longitude_deg": -3.35868,
+        "le_elevation_ft": 205,
+        "le_heading_degT": 117.0,
+        "le_displaced_threshold_ft": 797,
+        "he_ident": "30",
+        "he_latitude_deg": 51.3918,
+        "he_longitude_deg": -3.32799,
+        "he_elevation_ft": 213,
+        "he_heading_degT": 297.0,
+        "he_displaced_threshold_ft": 551,
+        "width_m": 45,
+        "buffer_m": 23
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [-3.35882902198996, 51.401316414822752],
+              [-3.359124116337303, 51.401409633717165],
+              [-3.358826051604809, 51.40177879520305],
+              [-3.327840861996107, 51.391984537495681],
+              [-3.327545890799119, 51.391891238778094],
+              [-3.327844146019475, 51.391522154902091],
+              [-3.35882902198996, 51.401316414822752]
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}
