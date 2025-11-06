@@ -10,6 +10,12 @@ This project was created as part of IS3S665 - GIS and the Spatial Web at the Uni
 
 The curriculum for the module can be found here: [IS3S665 - GIS and the Spatial Web](https://curriculum.southwales.ac.uk/Module/Details?moduleId=MOD009109)
 
+## Deployment
+
+A deployed version of the tool is available to try at: [aeroGIS.totaldwarf.dev](https://aerogis.totaldwarf.dev).
+
+**Note:** The above URL redirects you to [Vercel](https://vercel.com/) deployment of the website.
+
 ## Features
 
 - **Interactive Maps:** Explore airports across the UK using dynamic maps powered by the Google Maps API.
