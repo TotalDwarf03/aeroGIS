@@ -60,7 +60,7 @@ function removeAllMapData(map) {
  */
 async function showCountryPolygons(map, infoWindow) {
   map.data.loadGeoJson(
-    "../datasets/ukBoundaries/ukBoundaries-countries.json",
+    "./datasets/ukBoundaries/ukBoundaries-countries.json",
     null,
     () => {
       map.data.setStyle((feature) => {
@@ -89,7 +89,7 @@ async function showCountryPolygons(map, infoWindow) {
   ]);
 
   // Reuse logo bounds to show country flag on hover
-  logoBoundsData = await fetch("../datasets/aeroGIS/aeroGIS-logo-bounds.json", {
+  logoBoundsData = await fetch("./datasets/aeroGIS/aeroGIS-logo-bounds.json", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -158,11 +158,11 @@ function showAirportMarkers(map, infoWindow, countryName) {
   countryName = countryName.replace(" ", "_").toLowerCase();
 
   map.data.loadGeoJson(
-    `../datasets/ukBoundaries/ukBoundaries-borders-${countryName}.json`,
+    `./datasets/ukBoundaries/ukBoundaries-borders-${countryName}.json`,
   );
 
   map.data.loadGeoJson(
-    `../datasets/ourAirports/${countryName}/ourAirports-airports.json`,
+    `./datasets/ourAirports/${countryName}/ourAirports-airports.json`,
     null,
     () => {
       map.data.setStyle((feature) => {
@@ -260,7 +260,7 @@ function createResetMapControl(map, infoWindow) {
     showCountryPolygons(map, infoWindow);
 
     // Reset map view
-    fetch("../datasets/aeroGIS/aeroGIS-centroid.json", {
+    fetch("./datasets/aeroGIS/aeroGIS-centroid.json", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -288,7 +288,7 @@ async function initMap() {
   const { ColorScheme } = await google.maps.importLibrary("core");
   const { Map, MapTypeId } = await google.maps.importLibrary("maps");
 
-  const centre = await fetch("../datasets/aeroGIS/aeroGIS-centroid.json", {
+  const centre = await fetch("./datasets/aeroGIS/aeroGIS-centroid.json", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
