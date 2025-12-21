@@ -1,10 +1,10 @@
 # AeroGIS
 
-![AeroGIS Logo](./assets/aerogis-thumbnail.png)
+![AeroGIS Logo](./src/assets/aerogis-thumbnail.png)
 
 AeroGIS is a spatially enabled website that visualises airports around the UK using the Google Maps API.
 
-For a comprehensive list of datasets, their sources and any modifications, please refer to the [README](./datasets/README.md) in the `datasets` directory.
+For a comprehensive list of datasets, their sources and any modifications, please refer to the [README](./src/datasets/README.md) in the `datasets` directory.
 
 This project was created as part of IS3S665 - GIS and the Spatial Web at the University of South Wales (USW).
 
